@@ -1,6 +1,6 @@
 #include <SDL2/SDL.h>
 #include <stdbool.h>
-#include <dbg.h>
+#include "dbg.h"
 
 /*
 SDL_Window* window = NULL;
