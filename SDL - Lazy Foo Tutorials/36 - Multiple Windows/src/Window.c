@@ -70,7 +70,7 @@ void Window_handleEvents(Window* window, SDL_Event* e)
 			
 			// Repaint on exposure
 			case SDL_WINDOWEVENT_EXPOSED:
-				SDL_RenderPresent(renderer);
+				SDL_RenderPresent(window->renderer);
 				break;
 			
 			// Mouse entered window

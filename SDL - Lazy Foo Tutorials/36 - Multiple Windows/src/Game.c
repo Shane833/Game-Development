@@ -44,14 +44,11 @@ bool init()
 	check(TTF_Init() != -1, "Failed to intialzie SDL_ttf! TTF_Error: %s", TTF_GetError()); 
 	check(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) >= 0, "Failed to initialize SDL_mixer! Mix_Error: %s", Mix_GetError());
 	
+	// Here we initialize the windows
 	for(int i = 0;i < TOTAL_WINDOWS;i++){
 		gWindows[i] = Window_create(SCREEN_WIDTH, SCREEN_HEIGHT);
 		check(gWindows[i] != NULL, "ERROR : Failed to create window %d",i);
 	}
-	
-	renderer = Window_createRenderer(window);
-	check(renderer != NULL, "Failed to create a renderer! SDL_Error: %s", SDL_GetError());
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 	
 	return true;
 error:
@@ -75,36 +72,61 @@ void handleEvents()
 			quit = true;
 		}
 		
-		Window_handleEvents(window, renderer, &e);
+		// Handle all the window events
+		for(int i = 0;i < TOTAL_WINDOWS;i++){
+			Window_handleEvents(gWindows[i], &e);
+		}
+		
+		// Pull up window with 1,2 and 3 key respectively
+		if(e.type == SDL_KEYDOWN){
+			switch(e.key.keysym.sym){
+				case SDLK_1:
+					Window_focus(gWindows[0]);
+					break;
+				case SDLK_2:
+					Window_focus(gWindows[1]);
+					break;
+				case SDLK_3:
+					Window_focus(gWindows[2]);
+					break;
+			}
+		}
 	}	
 }
 
 void update()
 {
+	// Check all windows
+	// If all the windows are closed then we simply quit out of the application
+	bool all_windows_closed = true;
+	for(int i = 0;i < TOTAL_WINDOWS;i++){
+		if((gWindows[i])->shown){
+			all_windows_closed = false;
+			break;
+		}
+	}
 	
+	// Application closed all windows
+	if(all_windows_closed){
+		quit = true;
+	}
 }
 
 void render()
 {
-	// Render only when the window is not minimized
-	if(!window->minimized){
-		// Clear screen
-		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-		SDL_RenderClear(renderer); // Clears the current frame
-		
-		
-		SDL_RenderPresent(renderer); // Display the frame to the screen
+	// Render all the windows
+	for(int i = 0;i < TOTAL_WINDOWS;i++){
+		Window_render(gWindows[i]);
 	}
 	
 }
 
 void close()
 {
-	// Close our window and the renderer
-	Window_destroy(window);
-	window = NULL;
-	SDL_DestroyRenderer(renderer);
-	renderer = NULL;
+	// Close all of our windows
+	for(int i = 0;i < TOTAL_WINDOWS;i++){
+		Window_destroy(gWindows[i]);	
+	}
 	
 	// Quit SDL subsystems
 	TTF_Quit();
