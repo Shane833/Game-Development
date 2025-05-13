@@ -3,7 +3,7 @@
 // Global variables
 const int DOT_WIDTH = 20;
 const int DOT_HEIGHT = 20;
-const int DOT_VEL = 10; // reducing the velocity so the effect is more visible
+const int DOT_VEL = 5; // reducing the velocity so the effect is more visible
 
 // Function Defintions
 Dot* Dot_create(int x, int y)
@@ -15,6 +15,11 @@ Dot* Dot_create(int x, int y)
 	new_dot->position.y = y;
 	new_dot->x_velocity = 0;
 	new_dot->y_velocity = 0;
+	
+	// Initialize the particles
+	for(int i = 0;i < TOTAL_PARTICLES;i++){
+		new_dot->particles[i] = Particle_create(x,y);
+	}
 	
 	return new_dot;
 error:
@@ -76,14 +81,50 @@ error:  // fallthrough
 	return;
 }
 
-void Dot_render(SDL_Renderer* renderer, Texture* texture, Dot* dot)
+void Dot_render(SDL_Renderer* renderer, Texture* dot_texture, Texture* texture_array, Dot* dot)
 {
 	check(dot != NULL, "Invalid Dot!");
 	
-	Texture_render(renderer, texture, dot->position.x, dot->position.y, NULL);
+	Texture_render(renderer, dot_texture, dot->position.x, dot->position.y, NULL);
 	// By subtracting the camX and camY points we make sure that we keep the dot inside the 
 	// frame of the camera i.e. we are basically changing the origin of the dot from (0,0) to (camX, camY)
-
+	
+	// After rendering the dot we will render the particles as we want them on top
+	Dot_renderParticles(renderer, texture_array, dot); 
+	
 error: // fallthrough
 	return;
+}
+
+void Dot_renderParticles(SDL_Renderer* renderer, Texture* texture_array, Dot* dot)
+{
+	check(dot != NULL, "ERROR : Invalid Dot!");
+	
+	// We will go through each of the particles
+	for(int i = 0;i < TOTAL_PARTICLES; i++){
+		// Check if its dead
+		if(Particle_isDead(dot->particles[i])){
+			// If its dead then destroy it and create a new one
+			Particle_destroy(dot->particles[i]);
+			dot->particles[i] = Particle_create(dot->position.x, dot->position.y);
+		}
+	}
+	
+	// And at last we display all the particles
+	for(int i = 0;i < TOTAL_PARTICLES;i++){
+		Particle_render(renderer, texture_array, dot->particles[i]);
+	}
+
+error: // Fallthrough
+	return;
+}
+
+void Dot_destroy(Dot* dot)
+{
+	if(dot){
+		for(int i = 0;i < TOTAL_PARTICLES;i++){
+			Particle_destroy(dot->particles[i]);
+		}
+		free(dot);
+	}
 }

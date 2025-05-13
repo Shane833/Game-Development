@@ -10,6 +10,7 @@
 #include <Texture.h>
 #include <bstrlib.h>
 #include <dbg.h>
+#include <Dot.h>
 
 // Usual Global Variables
 extern Window* window;

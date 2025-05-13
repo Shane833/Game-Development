@@ -7,7 +7,7 @@ Window* Window_create(int width, int height)
 	check(temp != NULL, "ERROR : Failed to create the window!");
 	
 	// Create the window
-	temp->window = SDL_CreateWindow("Window Events", SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+	temp->window = SDL_CreateWindow("Particle Engine", SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 	check(temp->window != NULL, "ERROR : Failed to create the window!");
 	
 	// Creating the renderer
@@ -44,8 +44,6 @@ void Window_handleEvents(Window* window, SDL_Event* e)
 	// All events from all the windows go to the same event queue we need to identify
 	// the window based on it window ID
 	if (e->type == SDL_WINDOWEVENT && e->window.windowID == window->windowID){
-		// Caption update flag
-		bool update_caption = false;
 		
 		switch(e->window.event){
 			// Now we don't want to exit out of the program when the user presses the X button
@@ -76,25 +74,21 @@ void Window_handleEvents(Window* window, SDL_Event* e)
 			// Mouse entered window
 			case SDL_WINDOWEVENT_ENTER:
 				window->mouse_focus = true;
-				update_caption = true;
 				break;
 			
 			// Mouse left window
 			case SDL_WINDOWEVENT_LEAVE:
 				window->mouse_focus = false;
-				update_caption = true;
 				break;
 			
 			// Window has keyboard focus
 			case SDL_WINDOWEVENT_FOCUS_GAINED:
 				window->keyboard_focus = true;
-				update_caption = true;
 				break;
 			
 			// Window lost keyboard focus
 			case SDL_WINDOWEVENT_FOCUS_LOST:
 				window->keyboard_focus = false;
-				update_caption = true;
 				break;
 			
 			// Window minimized
@@ -117,15 +111,7 @@ void Window_handleEvents(Window* window, SDL_Event* e)
 				SDL_HideWindow(window->window);
 				break;
 		}
-		
-		// Update window caption with new data
-		if(update_caption){
-			bstring caption = bfromcstr("SDL Tutorial - Mouse Focus: ");
-			bcatcstr(caption, window->mouse_focus ? "On Keyboard Focus: " : "Off Keyboard Focus: ");
-			bcatcstr(caption, window->keyboard_focus ? "On" : "Off");
-			
-			SDL_SetWindowTitle(window->window, bdata(caption));	
-		}
+
 	}
 	else if (e->type == SDL_KEYDOWN && e->key.keysym.sym == SDLK_RETURN){
 		if(window->fullscreen){
@@ -150,19 +136,7 @@ void Window_focus(Window* window)
 	SDL_RaiseWindow(window->window); // we bring it above other windows
 }
 
-void Window_render(Window* window)
-{
-	// Again we only want to draw to a window if its not minimized
-	if(!window->minimized){
-		// clear screen
-		SDL_SetRenderDrawColor(window->renderer, 255,255,255,255);
-		SDL_RenderClear(window->renderer);
-		
-		// update screen
-		SDL_RenderPresent(window->renderer);
-		
-	}
-}
+
 
 void Window_destroy(Window* window)
 {

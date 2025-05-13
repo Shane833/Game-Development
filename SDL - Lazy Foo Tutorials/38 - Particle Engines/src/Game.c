@@ -1,9 +1,9 @@
 #include <Game.h>
 
-#define TOTAL_WINDOWS 3
 
 // Usual Global Variables
-Window* gWindows[TOTAL_WINDOWS]; // Array of windows
+Window* gWindow; 
+Dot* dot;
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -12,7 +12,8 @@ TTF_Font* font = NULL;
 bool quit = false;
 
 // Texture Variable
-Texture scene_texture;
+Texture dot_texture;
+Texture texture_array[4];
 
 int run()
 {
@@ -44,12 +45,13 @@ bool init()
 	check(TTF_Init() != -1, "Failed to intialzie SDL_ttf! TTF_Error: %s", TTF_GetError()); 
 	check(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) >= 0, "Failed to initialize SDL_mixer! Mix_Error: %s", Mix_GetError());
 	
-	// Here we initialize the windows
-	for(int i = 0;i < TOTAL_WINDOWS;i++){
-		gWindows[i] = Window_create(SCREEN_WIDTH, SCREEN_HEIGHT);
-		check(gWindows[i] != NULL, "ERROR : Failed to create window %d",i);
-	}
+	// Here we initialize the window
+	gWindow = Window_create(SCREEN_WIDTH, SCREEN_HEIGHT);
+	check(gWindow != NULL, "ERROR : Failed to create window");
 	
+	dot = Dot_create(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+	check(dot != NULL, "ERROR : Failed to create the dot!");
+
 	return true;
 error:
 	return false;
@@ -57,6 +59,27 @@ error:
 
 bool loadMedia()
 {
+	bool r = Texture_loadFromFile(gWindow->renderer, &dot_texture, "Assets/dot.bmp");
+	check(r != false, "ERROR : Failed to load the texture!");
+	
+	r = Texture_loadFromFile(gWindow->renderer, &texture_array[RED], "Assets/red.bmp");
+	check(r != false, "ERROR : Failed to load the texture!");
+	
+	r = Texture_loadFromFile(gWindow->renderer, &texture_array[GREEN], "Assets/green.bmp");
+	check(r != false, "ERROR : Failed to load the texture!");
+	
+	r = Texture_loadFromFile(gWindow->renderer, &texture_array[BLUE], "Assets/BLUE.bmp");
+	check(r != false, "ERROR : Failed to load the texture!");
+	
+	r = Texture_loadFromFile(gWindow->renderer, &texture_array[SHIMMER], "Assets/shimmer.bmp");
+	check(r != false, "ERROR : Failed to load the texture!");
+	
+	// Then we make the textures a little translucent
+	Texture_setAlpha(&dot_texture, 192);
+	Texture_setAlpha(&texture_array[RED], 192);
+	Texture_setAlpha(&texture_array[BLUE], 192);
+	Texture_setAlpha(&texture_array[GREEN], 192);
+	Texture_setAlpha(&texture_array[SHIMMER], 192);
 	
 	return true;
 error:
@@ -73,60 +96,48 @@ void handleEvents()
 		}
 		
 		// Handle all the window events
-		for(int i = 0;i < TOTAL_WINDOWS;i++){
-			Window_handleEvents(gWindows[i], &e);
-		}
+		Window_handleEvents(gWindow, &e);
 		
-		// Pull up window with 1,2 and 3 key respectively
-		if(e.type == SDL_KEYDOWN){
-			switch(e.key.keysym.sym){
-				case SDLK_1:
-					Window_focus(gWindows[0]);
-					break;
-				case SDLK_2:
-					Window_focus(gWindows[1]);
-					break;
-				case SDLK_3:
-					Window_focus(gWindows[2]);
-					break;
-			}
-		}
+		// Handle all the dot events
+		Dot_handleEvents(dot, &e);
 	}	
 }
 
 void update()
 {
-	// Check all windows
-	// If all the windows are closed then we simply quit out of the application
-	bool all_windows_closed = true;
-	for(int i = 0;i < TOTAL_WINDOWS;i++){
-		if((gWindows[i])->shown){
-			all_windows_closed = false;
-			break;
-		}
-	}
-	
-	// Application closed all windows
-	if(all_windows_closed){
-		quit = true;
+	// Move the dot
+	Dot_move(dot, SCREEN_WIDTH, SCREEN_HEIGHT);
+}
+
+// We declared this function to be extern in the Window.h file
+// That means its defintion will be defined somewhere else possible other files
+void Window_render(Window* window)
+{
+	// Again we only want to draw to a window if its not minimized
+	if(!window->minimized){
+		// clear screen
+		SDL_SetRenderDrawColor(window->renderer, 255,255,255,255);
+		SDL_RenderClear(window->renderer);
+		
+		// Then we render the dot
+		Dot_render(window->renderer, &dot_texture, texture_array, dot);
+		
+		// update screen
+		SDL_RenderPresent(window->renderer);
+		
 	}
 }
 
 void render()
 {
-	// Render all the windows
-	for(int i = 0;i < TOTAL_WINDOWS;i++){
-		Window_render(gWindows[i]);
-	}
-	
+	// Render the window
+	Window_render(gWindow);
 }
 
 void close()
 {
 	// Close all of our windows
-	for(int i = 0;i < TOTAL_WINDOWS;i++){
-		Window_destroy(gWindows[i]);	
-	}
+	Window_destroy(gWindow);	
 	
 	// Quit SDL subsystems
 	TTF_Quit();

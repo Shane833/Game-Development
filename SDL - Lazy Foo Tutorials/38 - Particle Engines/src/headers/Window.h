@@ -25,7 +25,7 @@ typedef struct{
 Window* Window_create(int width, int height);
 void Window_handleEvents(Window* window, SDL_Event* e);
 void Window_focus(Window* window);
-void Window_render(Window* window);
+extern void Window_render(Window* window);
 void Window_destroy(Window* window);
 
 
