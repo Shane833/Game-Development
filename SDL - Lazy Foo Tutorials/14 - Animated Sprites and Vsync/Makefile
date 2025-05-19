@@ -9,6 +9,8 @@ TARGET=main
 
 all: compile link
 
+linux: compile linkl
+
 debug: CFLAGS += -DNDEBUG
 debug: all
 
@@ -17,6 +19,13 @@ compile: $(SOURCES) $(OBJECTS)
 link:
 	$(CC) $(OBJECTS) -o $(TARGET) $(LIBS)
 
+linkl:
+	$(CC) $(OBJECTS) -o $(TARGET) $(LIBSL)
+
 clean:
 	del /q $(TARGET).exe
 	del /q src\*.o
+
+cleanl:
+	rm -f $(TARGET)
+	rm -f src/*.o

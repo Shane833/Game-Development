@@ -16,3 +16,7 @@ link:
 
 clean:
 	del /q src\*.o
+
+cleanl:
+	rm -f src/*.o
+	rm -f $(TARGET)
