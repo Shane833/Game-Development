@@ -1,5 +1,5 @@
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_Image.h>
+#include <SDL2/SDL_image.h>
 #include <stdbool.h>
 #include <dbg.h>
 
@@ -15,7 +15,6 @@ const int SCREEN_HEIGHT = 480;
 SDL_Texture* loadTexture(const char* filename); // Loads the textures from the images
 bool init();
 bool loadMedia();
-void close();
 
 
 int main(int argc, char* argv[]){
@@ -67,8 +66,17 @@ int main(int argc, char* argv[]){
 		SDL_RenderPresent(renderer);
 	}
 	
-	close();
+	SDL_DestroyTexture(current_texture);
+	current_texture = NULL;
 	
+	
+	SDL_DestroyWindow(window);
+	window = NULL;
+	SDL_DestroyRenderer(renderer);
+	renderer = NULL;
+	
+	SDL_Quit();
+	IMG_Quit();
 	return 0;
 	error:
 		return 1;
@@ -76,7 +84,7 @@ int main(int argc, char* argv[]){
 
 // Function Definitions
 bool init(){
-	check(SDL_Init(SDL_INIT_EVERYTHING) >= 0,"Failed to initialize SDL! SDL_Error: %s\n", SDL_GetError());
+	check(SDL_Init(SDL_INIT_VIDEO) <= 0,"Failed to initialize SDL! SDL_Error: %s\n", SDL_GetError());
 	
 	window = SDL_CreateWindow("Texture Loading and Rendering",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
 	check(window != NULL, "Failed to create the window! SDL_Error: %s\n", SDL_GetError());
@@ -112,7 +120,7 @@ SDL_Texture* loadTexture(const char* filename){
 }
 
 bool loadMedia(){
-	current_texture = loadTexture("Assets/background.png");
+	current_texture = loadTexture("Assets/Background.png");
 	check(current_texture != NULL, "Failed to load the texture!");
 	
 	return true;
@@ -121,15 +129,5 @@ bool loadMedia(){
 }
 
 void close(){
-	SDL_DestroyTexture(current_texture);
-	current_texture = NULL;
 	
-	
-	SDL_DestroyWindow(window);
-	window = NULL;
-	SDL_DestroyRenderer(renderer);
-	renderer = NULL;
-	
-	SDL_Quit();
-	IMG_Quit();
 }

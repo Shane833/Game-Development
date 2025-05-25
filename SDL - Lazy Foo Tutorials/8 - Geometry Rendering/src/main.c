@@ -10,7 +10,7 @@ const int SCREEN_HEIGHT = 480;
 
 // Functions
 bool init();
-void close();
+
 
 int main(int argc, char* argv[]){
 	
@@ -54,7 +54,12 @@ int main(int argc, char* argv[]){
 		SDL_RenderPresent(renderer); // Update the screens
 	}
 	
-	close();
+	SDL_DestroyWindow(window);
+	window = NULL;
+	SDL_DestroyRenderer(renderer);
+	renderer = NULL;
+	
+	SDL_Quit();
 	
 	return 0;
 	error:
@@ -63,7 +68,7 @@ int main(int argc, char* argv[]){
 
 // Function definition
 bool init(){
-	check(SDL_Init(SDL_INIT_EVERYTHING) >= 0, "Failed to initialize SDL! SDL_Error: %s\n", SDL_GetError());
+	check(SDL_Init(SDL_INIT_VIDEO) <= 0, "Failed to initialize SDL! SDL_Error: %s\n", SDL_GetError());
 	
 	window = SDL_CreateWindow("Geometry Rendering",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
 	check(window != NULL, "Failed to create the window! SDL_Error: %s\n", SDL_GetError());
@@ -75,13 +80,4 @@ bool init(){
 	return true;
 	error:
 		return false;
-}
-
-void close(){
-	SDL_DestroyWindow(window);
-	window = NULL;
-	SDL_DestroyRenderer(renderer);
-	renderer = NULL;
-	
-	SDL_Quit();
 }

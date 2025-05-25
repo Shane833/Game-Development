@@ -1,5 +1,5 @@
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_Image.h>
+#include <SDL2/SDL_image.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <dbg.h>
@@ -61,7 +61,16 @@ int main(int argc, char* argv[])
 		SDL_RenderPresent(renderer); // Display the frame to the screen
 	}
 	
-	close();
+	Texture_destroy(&guy);
+	Texture_destroy(&bg);
+	
+	SDL_DestroyWindow(window);
+	window = NULL;
+	SDL_DestroyRenderer(renderer);
+	renderer = NULL;
+	
+	IMG_Quit();
+	SDL_Quit();
 	
 	return 0;
 	error:
@@ -153,7 +162,7 @@ size_t Texture_getHeight(Texture* texture)
 
 bool init()
 {
-	check(SDL_Init(SDL_INIT_EVERYTHING) >= 0, "Failed to initialize SDL! SDL_Error: %s\n", SDL_GetError());
+	check(SDL_Init(SDL_INIT_VIDEO) <= 0, "Failed to initialize SDL! SDL_Error: %s\n", SDL_GetError());
 	
 	window = SDL_CreateWindow("Color Keying",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
 	check(window != NULL, "Failed to create a window! SDL_Error: %s\n", SDL_GetError());
@@ -184,14 +193,5 @@ bool loadMedia()
 
 void close()
 {
-	Texture_destroy(&guy);
-	Texture_destroy(&bg);
 	
-	SDL_DestroyWindow(window);
-	window = NULL;
-	SDL_DestroyRenderer(renderer);
-	renderer = NULL;
-	
-	IMG_Quit();
-	SDL_Quit();
 }

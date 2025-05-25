@@ -1,5 +1,5 @@
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_Image.h>
+#include <SDL2/SDL_image.h>
 #include <stdbool.h>
 #include <dbg.h>
 
@@ -38,7 +38,16 @@ int main(int argc, char* argv[]){
 		SDL_RenderPresent(renderer);
 	}
 	
-	close();
+	SDL_DestroyTexture(current_texture);
+	current_texture = NULL;
+
+	SDL_DestroyWindow(window);
+	window = NULL;
+	SDL_DestroyRenderer(renderer);
+	renderer = NULL;
+	
+	SDL_Quit();
+	IMG_Quit();
 	
 	return 0;
 	error:
@@ -47,7 +56,8 @@ int main(int argc, char* argv[]){
 
 // Function Definitions
 bool init(){
-	check(SDL_Init(SDL_INIT_EVERYTHING) >= 0,"Failed to initialize SDL! SDL_Error: %s\n", SDL_GetError());
+	// Don't initialize everything just the subsystems you wish to use
+	check(SDL_Init(SDL_INIT_VIDEO) <= 0,"Failed to initialize SDL! SDL_Error: %s\n", SDL_GetError());
 	
 	window = SDL_CreateWindow("Texture Loading and Rendering",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
 	check(window != NULL, "Failed to create the window! SDL_Error: %s\n", SDL_GetError());
@@ -92,15 +102,5 @@ bool loadMedia(){
 }
 
 void close(){
-	SDL_DestroyTexture(current_texture);
-	current_texture = NULL;
 	
-	
-	SDL_DestroyWindow(window);
-	window = NULL;
-	SDL_DestroyRenderer(renderer);
-	renderer = NULL;
-	
-	SDL_Quit();
-	IMG_Quit();
 }

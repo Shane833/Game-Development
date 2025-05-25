@@ -35,18 +35,36 @@ int run()
 		}
 		
 	}
-	
-	close();
-	
+		
 	return 0;
 error:
 	return 1;
 }
 
+int main(int arg, char* argv[])
+{
+	int r = run();
+	check(r == 0, "Something went wrong!");
+
+error: // closing via fallthrough
+
+	Texture_destroy(&sprite_sheet);
+	
+	SDL_DestroyWindow(window);
+	window = NULL;
+	SDL_DestroyRenderer(renderer);
+	renderer = NULL;
+	
+	IMG_Quit();
+	SDL_Quit();
+
+	return r;
+}
+
 // Function definitions
 bool init()
 {
-	check(SDL_Init(SDL_INIT_EVERYTHING) >= 0, "Failed to initialize SDL! SDL_Error: %s\n", SDL_GetError());
+	check(SDL_Init(SDL_INIT_VIDEO) >= 0, "Failed to initialize SDL! SDL_Error: %s\n", SDL_GetError());
 	
 	window = SDL_CreateWindow("Color Keying",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
 	check(window != NULL, "Failed to create a window! SDL_Error: %s\n", SDL_GetError());
@@ -64,8 +82,8 @@ error:
 
 bool loadMedia()
 {
-	bool r = Texture_loadFromFile(renderer, &sprite_sheet, "Assets/walk.png");
-	check(r == true, "Failed to load the front texture");
+	bool r = Texture_loadFromFile(renderer, &sprite_sheet, "Assets/Walk.png");
+	check(r == true, "Failed to load the Walk texture");
 	
 	
 	sheet[0].x = 0;
@@ -144,7 +162,7 @@ void render()
 		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 		SDL_RenderClear(renderer); // Clears the current frame
 			
-		SDL_Rect* current_clip = &sheet[current_frame / TOTAL_FRAMES];	
+		SDL_Rect* current_clip = &(sheet[current_frame / TOTAL_FRAMES]);	
 		Texture_render(renderer, &sprite_sheet, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, current_clip);
 		
 		SDL_RenderPresent(renderer); // Display the frame to the screen
@@ -152,14 +170,6 @@ void render()
 
 void close()
 {
-	Texture_destroy(&sprite_sheet);
 	
-	SDL_DestroyWindow(window);
-	window = NULL;
-	SDL_DestroyRenderer(renderer);
-	renderer = NULL;
-	
-	IMG_Quit();
-	SDL_Quit();
 }
 
