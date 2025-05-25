@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include <Texture.h>
+#include <Collider.h>
 #include <dbg.h>
 
 // Tile Constants
@@ -32,11 +33,11 @@ extern SDL_Rect tileClips[];
 
 // Defines the Tiles
 typedef struct{
-	SDL_Rect box;
+	Box_Collider box;
 	int type;
 }Tile;
 
 Tile* Tile_create(int x, int y, int tileType); // creates the tile
-void Tile_render(SDL_Renderer* renderer, Tile* tile, SDL_Rect* camera); // renders the tile to the screen
+void Tile_render(SDL_Renderer* renderer, Texture* tileTexture, Tile* tile, SDL_Rect* camera); // renders the tile to the screen
 
 #endif

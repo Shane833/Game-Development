@@ -19,6 +19,7 @@ Texture tileTexture;
 // Tile clips
 SDL_Rect tileClips[TOTAL_TILE_SPRITES]; // We can't declare an array with variable size even if its const
 
+// Creating the Tile
 Tile* Tile_create(int x, int y, int tileType)
 {
 	Tile* temp = malloc(sizeof(Tile));
@@ -35,5 +36,15 @@ Tile* Tile_create(int x, int y, int tileType)
 	return temp;
 error:
 	return NULL;
+}
+
+// Rendering the Tile
+void Tile_render(SDL_Renderer* renderer, Texture* tileTexture, Tile* tile, SDL_Rect* camera)
+{
+	// If the tile is on the screen
+	if( checkBoxCollision((Box_Collider*)camera, &(tile->box)) ){
+		// show the tile
+		Texture_render(renderer, tileTexture, tile->box.x - camera->x, tile->box.y - camera->y, &tileClips[tile->type]);
+	}
 }
 

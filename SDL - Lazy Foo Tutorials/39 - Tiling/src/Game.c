@@ -43,7 +43,7 @@ int main(int arg, char* argv[])
 	int r = run();
 	check(r == 0, "Something went wrong!");
 	
-error:
+error: // close with fallthrough
 	// Destroy the dot
 	Dot_destroy(dot);
 	
@@ -108,6 +108,8 @@ void update()
 {
 	// Move the dot
 	Dot_move(dot, tiles, LEVEL_WIDTH, LEVEL_HEIGHT);
+	// Update the camera position after the dot moves
+	Dot_setCamera(dot, &camera, SCREEN_WIDTH, SCREEN_HEIGHT, LEVEL_WIDTH, LEVEL_HEIGHT);
 }
 
 // We declared this function to be extern in the Window.h file
@@ -122,7 +124,7 @@ void Window_render(Window* window)
 		
 		// Then we render the dot
 		Dot_render(window->renderer, &camera, &dotTexture, dot);
-		
+
 		// update screen
 		SDL_RenderPresent(window->renderer);
 		
