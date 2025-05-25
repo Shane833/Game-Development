@@ -21,7 +21,7 @@ typedef struct{
 }Window;
 
 // Window Functions
-Window* Window_create(int width, int height);
+Window* Window_create(int width, int height, Uint32 flags);
 void Window_handleEvents(Window* window, SDL_Event* e);
 void Window_focus(Window* window);
 extern void Window_render(Window* window);

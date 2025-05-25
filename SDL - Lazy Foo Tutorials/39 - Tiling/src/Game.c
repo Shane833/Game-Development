@@ -33,22 +33,40 @@ int run()
 		render();	
 	}
 	
-	close(tiles);
-	
 	return 0;
 error:
 	return 1;
 }
 
+int main(int arg, char* argv[])
+{
+	int r = run();
+	check(r == 0, "Something went wrong!");
+	
+error:
+	// Destroy the dot
+	Dot_destroy(dot);
+	
+	// Close all of our windows
+	Window_destroy(gWindow);	
+	
+	// Quit SDL subsystems
+	TTF_Quit();
+	IMG_Quit();
+	SDL_Quit();
+
+	return r;
+}
+
 // Function definitions
 bool init()
 {
-	check(SDL_Init(SDL_INIT_EVERYTHING) >= 0, "Failed to initialize SDL! SDL_Error: %s", SDL_GetError());
+	check(SDL_Init(SDL_INIT_VIDEO) <= 0, "Failed to initialize SDL! SDL_Error: %s", SDL_GetError());
 	check((IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) > 0, "Failed to initialize SDL_image! IMG_Error: %s", IMG_GetError());
 	check(TTF_Init() != -1, "Failed to intialzie SDL_ttf! TTF_Error: %s", TTF_GetError()); 
 	
 	// Here we initialize the window
-	gWindow = Window_create(SCREEN_WIDTH, SCREEN_HEIGHT);
+	gWindow = Window_create(SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 	check(gWindow != NULL, "ERROR : Failed to create window");
 	
 	dot = Dot_create(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
@@ -119,14 +137,5 @@ void render()
 
 void close(Tile* tiles[])
 {
-	// Destroy the dot
-	Dot_destroy(dot);
 	
-	// Close all of our windows
-	Window_destroy(gWindow);	
-	
-	// Quit SDL subsystems
-	TTF_Quit();
-	IMG_Quit();
-	SDL_Quit();
 }
