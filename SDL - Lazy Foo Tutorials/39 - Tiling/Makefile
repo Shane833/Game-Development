@@ -1,7 +1,9 @@
 CFLAGS=-Wall -O2 -Isrc/headers -fsanitize=address
-LIBS=-lmingw32 -lSDL2main -lSDL2_image -lSDL2_ttf -lSDL2 
+LIBS_STATIC=-static-libgcc -static-libstdc++ -lavif -laom -ldav1d -lrav1e -lsharpyuv -lsvtav1enc -lyuv -ljpeg -ljxl -lpng -ltiff -lwebp -lwebpdemux -lfreetype -lharfbuzz -lSDL2main -lSDL2_image -lSDL2_ttf -lSDL2 
+LIBS=-lmingw32 -lSDL2main -lSDL2_image -lSDL2_ttf -lSDL2
 LIBSL = -lSDL2main -lSDL2_image -lSDL2_ttf -lSDL2
 SANITIZE = -fsanitize=address
+STATIC=-static
 
 SOURCES=$(wildcard src/**/*.c src/*.c)
 OBJECTS=$(patsubst %.c,%.o,$(SOURCES))
@@ -19,10 +21,16 @@ linux: compile linkl
 debug: CFLAGS += -DNDEBUG
 debug: compile link
 
+static: CFLAGS=-Wall -O2 -Isrc/headers
+static: compile links
+
 compile: $(SOURCES) $(OBJECTS)
 
 link:
 	$(CC) $(OBJECTS) -o $(TARGET) $(LIBS)
+
+links:
+	$(CC) $(STATIC) $(OBJECTS) -o $(TARGET) $(LIBS_STATIC)
 	
 linkl:
 	$(CC) $(SANITIZE) $(OBJECTS) -o $(TARGET) $(LIBSL)
