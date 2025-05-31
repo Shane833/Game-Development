@@ -29,4 +29,9 @@ void render(); // Display the sprites and textures on the screen
 void close(Tile* tiles[]); // frees the resources and closes the subsystems
 int run();
 
+// Additional Functions
+// Sets tiles from the tile map
+bool setTiles(Tile* tiles[]);
+void freeTiles(Tile* tiles[]);
+
 #endif

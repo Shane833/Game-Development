@@ -40,4 +40,5 @@ typedef struct{
 Tile* Tile_create(int x, int y, int tileType); // creates the tile
 void Tile_render(SDL_Renderer* renderer, Texture* tileTexture, Tile* tile, SDL_Rect* camera); // renders the tile to the screen
 
+
 #endif

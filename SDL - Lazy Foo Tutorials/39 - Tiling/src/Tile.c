@@ -48,3 +48,5 @@ void Tile_render(SDL_Renderer* renderer, Texture* tileTexture, Tile* tile, SDL_R
 	}
 }
 
+// S
+

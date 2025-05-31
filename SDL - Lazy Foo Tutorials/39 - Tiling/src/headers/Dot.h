@@ -34,8 +34,7 @@ void Dot_destroy(Dot* dot);
 // Additional functions
 
 // Check collision box against the set of tiles
-bool Dot_touchesWall(const Box_Collider* box, Tile* tiles[]);
-// Sets tiles from the tile map
-bool setTiles(Tile* tiles[]);
+bool Dot_touchesWall(Dot* dot, Tile* tiles[]);
+
 
 #endif

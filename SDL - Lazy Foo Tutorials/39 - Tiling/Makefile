@@ -24,6 +24,9 @@ debug: compile link
 static: CFLAGS=-Wall -O2 -Isrc/headers
 static: compile links
 
+releasel: CFLAGS= -O2 -Isrc/headers
+releasel: compile linkr
+
 compile: $(SOURCES) $(OBJECTS)
 
 link:
@@ -34,6 +37,9 @@ links:
 	
 linkl:
 	$(CC) $(SANITIZE) $(OBJECTS) -o $(TARGET) $(LIBSL)
+
+linkr:
+	$(CC) $(OBJECTS) -o $(TARGET) $(LIBSL)
 
 cleanw:
 	del /q src\*.o

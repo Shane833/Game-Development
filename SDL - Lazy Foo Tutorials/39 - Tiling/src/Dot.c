@@ -69,7 +69,7 @@ void Dot_move(Dot* dot, Tile* tiles[], int LEVEL_WIDTH, int LEVEL_HEIGHT)
 	dot->box.x = dot->position.x;
 	
 	// If the dot collided or went too far to the left or right or touched a wall
-	if( (dot->position.x < 0) || (dot->position.x + DOT_WIDTH > LEVEL_WIDTH) || Dot_touchesWall(&(dot->box), tiles) ){
+	if( (dot->position.x < 0) || (dot->position.x + DOT_WIDTH > LEVEL_WIDTH) || Dot_touchesWall(dot, tiles) ){
 		// move back
 		dot->position.x -= dot->x_velocity;
 		dot->box.x = dot->position.x;
@@ -79,7 +79,7 @@ void Dot_move(Dot* dot, Tile* tiles[], int LEVEL_WIDTH, int LEVEL_HEIGHT)
 	dot->position.y += dot->y_velocity;	
 	dot->box.y = dot->position.y;
 
-	if( (dot->position.y < 0) || (dot->position.y + DOT_HEIGHT > LEVEL_HEIGHT) || Dot_touchesWall(&(dot->box), tiles) ){
+	if( (dot->position.y < 0) || (dot->position.y + DOT_HEIGHT > LEVEL_HEIGHT) || Dot_touchesWall(dot, tiles) ){
 		// move back
 		dot->position.y -= dot->y_velocity;
 		dot->box.y = dot->position.y;
@@ -130,7 +130,19 @@ void Dot_destroy(Dot* dot)
 	}
 }
 
-bool Dot_touchesWall(const Box_Collider* box, Tile* tiles[])
+// function to check collision with the tile walls
+bool Dot_touchesWall(Dot* dot, Tile* tiles[])
 {
+	// we will simple iterate over the tiles
+	for(int i = 0; i < TOTAL_TILES; i++){
+		// If the tile happens to be a wall
+		if(tiles[i]->type >= TILE_CENTER && tiles[i]->type <= TILE_TOPLEFT){
+			// if the dot touches the wall tiles
+			if (checkBoxCollision(&(dot->box), &(tiles[i]->box)) ){
+				return true;
+			}
+		}
+	}
 
+	return false;
 }
