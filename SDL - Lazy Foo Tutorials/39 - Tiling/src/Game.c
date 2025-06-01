@@ -104,6 +104,17 @@ bool setTiles(Tile* tiles[])
 
 		// now to check if the tile type is valid
 		check( ( (tile_type >= 0) && (tile_type <= TOTAL_TILE_SPRITES) ), "ERROR : Invalid Tile Type!");
+		// Minor Update here
+		// Since the memory for the pointers is already allocated
+		// I shouldn't have to dynamically allocate it again
+		// I can just assign them the values
+		// Again update however that would be wrong
+		// Since the array only allocates the memory for pointers themselves
+		// Not the things they point to and since they are pointing to null by default
+		// This would result in an error
+		/* This would not work
+		tiles[i]->box.x = x, tiles[i]->box.y = y, tiles[i]->type = tile_type;
+		*/
 		tiles[i] = Tile_create(x, y, tile_type);
 		check(tiles[i] != NULL, "ERROR : Failed to create a tile!, SDL Error : %s", SDL_GetError());
 		
@@ -114,7 +125,6 @@ bool setTiles(Tile* tiles[])
 		if(x >= LEVEL_WIDTH){
 			x = 0;
 			y += TILE_HEIGHT;
-			printf("\n");
 		}	
 	}
 
