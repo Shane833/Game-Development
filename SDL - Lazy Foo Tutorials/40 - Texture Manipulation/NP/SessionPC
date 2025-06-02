@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="1">
+            <File firstVisibleLine="15" xOffset="0" scrollWidth="4253" startPos="876" endPos="844" selMode="0" offset="0" wrapCount="1" lang="C++" encoding="-1" userReadOnly="no" filename="D:\Shane\Game Development\Game-Development\SDL - Lazy Foo Tutorials\40 - Texture Manipulation\src\headers\Texture.h" backupFilePath="" originalFileLastModifTimestamp="1461474573" originalFileLastModifTimestampHigh="31183834" tabColourId="-1" RTL="no" tabPinned="no" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="512" mapWrapIndentMode="-1" mapIsWrap="no" />
+            <File firstVisibleLine="98" xOffset="0" scrollWidth="2730" startPos="3709" endPos="3709" selMode="0" offset="0" wrapCount="1" lang="C" encoding="-1" userReadOnly="no" filename="D:\Shane\Game Development\Game-Development\SDL - Lazy Foo Tutorials\40 - Texture Manipulation\src\Texture.c" backupFilePath="" originalFileLastModifTimestamp="259218640" originalFileLastModifTimestampHigh="31183835" tabColourId="-1" RTL="no" tabPinned="no" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="512" mapWrapIndentMode="-1" mapIsWrap="no" />
+        </mainView>
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>
