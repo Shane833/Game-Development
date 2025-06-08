@@ -8,7 +8,6 @@
 #include <Window.h>
 #include <Texture.h>
 #include <dbg.h>
-#include <Dot.h>
 
 // Usual Global Variables
 extern Window* window;
@@ -22,16 +21,11 @@ extern bool quit;
 
 // Functions
 bool init(); // Intializes subsystems and 
-bool loadMedia(Tile* tiles[]); // Loads the textures, music etc
+bool loadMedia(); // Loads the textures, music etc
 void handleEvents(); // handles the user and game event
 void update(); // Handles physics and other updates
 void render(); // Display the sprites and textures on the screen
-void close(Tile* tiles[]); // frees the resources and closes the subsystems
+void close(); // frees the resources and closes the subsystems
 int run();
-
-// Additional Functions
-// Sets tiles from the tile map
-bool setTiles(Tile* tiles[]);
-void freeTiles(Tile* tiles[]);
 
 #endif

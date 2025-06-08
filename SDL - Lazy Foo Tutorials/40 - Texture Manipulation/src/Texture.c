@@ -90,7 +90,7 @@ bool Texture_loadFromPixels(Window* window, Texture* texture)
 	check(texture->pixels != NULL, "ERROR : No Pixels Loaded!, SDL Error : %s", SDL_GetError());
 	
 	// Color key the image
-	SDL_SetColorKey(texture->pixels, SDL_TRUE, SDL_MapRGB(textur->pixels->format, 0, 255, 255));
+	SDL_SetColorKey(texture->pixels, SDL_TRUE, SDL_MapRGB(texture->pixels->format, 0, 255, 255));
 	
 	// Create texture from surface pixels
 	texture->texture = SDL_CreateTextureFromSurface(window->renderer, texture->pixels);

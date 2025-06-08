@@ -29,7 +29,7 @@ size_t Texture_getHeight(Texture* texture); // Returns the image height
 Uint32* Texture_getPixels32(Texture* texture); // Returns the raw pixels of the image
 Uint32 Texture_getPitch32(Texture* texture); // Pitch is the width of texture in memory, it can be of different sizes using pitch we can determine how it is in memory
 
-Uint32 Texture_mapRGBA(Texuture* texture, Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha); // This returns a single 32-bit pixel in the format of internal SDL_Surface 
+Uint32 Texture_mapRGBA(Texture* texture, Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha); // This returns a single 32-bit pixel in the format of internal SDL_Surface 
 void Texture_setColor(Texture* texture, Uint8 red, Uint8 green, Uint8 blue); // Set the color modulation of the texture
 void Texture_setBlendMode(Texture* texture, SDL_BlendMode blending); // Set the different blending mode on a texture
 void Texture_setAlpha(Texture* texture, Uint8 alpha); // Modulates the alpha values
