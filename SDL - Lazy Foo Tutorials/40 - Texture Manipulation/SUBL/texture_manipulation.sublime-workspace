@@ -1,0 +1,517 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/Game.c",
+			"settings":
+			{
+				"buffer_size": 2076,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/Texture.c",
+			"settings":
+			{
+				"buffer_size": 7934,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/Window.c",
+			"settings":
+			{
+				"buffer_size": 4015,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/dbg.h",
+			"settings":
+			{
+				"buffer_size": 5511,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/Game.h",
+			"settings":
+			{
+				"buffer_size": 824,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/Texture.h",
+			"settings":
+			{
+				"buffer_size": 2438,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/Window.h",
+			"settings":
+			{
+				"buffer_size": 638,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/shane/Ash/C/let us C /CH 2/2 - logical operator/pro.c",
+		"/home/shane/Ash/C/let us C /CH 1/1 /main.c",
+		"/home/shane/Ash/C/let us C /CH 1/1 /a.out",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/headers/Texture.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/headers/Window.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/headers/Collider.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/Collider.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/headers/Tile.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/Tile.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/headers/Dot.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/Dot.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/headers/Game.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/Game.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/Assets/lazy.map",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/Makefile",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/27 - Collision Detection/src/Dot.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/Window.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/Texture.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/29 - Circular Collision/src/Dot.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/29 - Circular Collision/src/headers/Game.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/29 - Circular Collision/src/Game.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/29 - Circular Collision/src/headers/Dot.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/27 - Collision Detection/src/Game.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/27 - Collision Detection/src/headers/Dot.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/27 - Collision Detection/src/headers/Game.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/headers/dbg.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/**/.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/SUBL/Tiling.sublime-project",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/src/main.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/14 - Animated Sprites and Vsync/src/Game.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/14 - Animated Sprites and Vsync/src/Texture.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/14 - Animated Sprites and Vsync/src/main.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/13 - Alpha Blending/src/main.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/12 - Color Modulation/src/main.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/12 - Color Modulation/Makefile",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/11 - Clip Rendering and Sprite Sheets/src/main.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/10 - Color Keying/src/main.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/8 - Geometry Rendering/src/main.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/9 - The Viewport/src/main.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/7 - Texture Loading and Rendering/src/main.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/10 - Color Keying/Makefile",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/9 - The Viewport/Makefile",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/8 - Geometry Rendering/Makefile",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/7 - Texture Loading and Rendering/Makefile",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/6 - Loading PNGs with SDL_Image/Makefile",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/6 - Loading PNGs with SDL_Image/src/main.c",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/14 - Animated Sprites and Vsync/src/headers/Texture.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/14 - Animated Sprites and Vsync/src/headers/Game.h",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/14 - Animated Sprites and Vsync/Makefile",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/11 - Clip Rendering and Sprite Sheets/Makefile",
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/38 - Particle Engines/Makefile",
+		"/home/shane/GitHub/C/Learn C the hard Way/ex35 Sorting and Searching/src/lcthw/darray_algos.h",
+		"/home/shane/GitHub/C/Learn C the hard Way/ex35 Sorting and Searching/src/lcthw/darray_algos.c",
+		"/home/shane/GitHub/C/Learn C the hard Way/ex35 Sorting and Searching/src/lcthw/darray.h",
+		"/home/shane/GitHub/C/Learn C the hard Way/ex35 Sorting and Searching/src/lcthw/PQueue.h",
+		"/home/shane/GitHub/C/Learn C the hard Way/ex35 Sorting and Searching/src/lcthw/list.h",
+		"/home/shane/GitHub/C/Learn C the hard Way/ex35 Sorting and Searching/src/lcthw/dbg.h",
+		"/home/shane/GitHub/C/Learn C the hard Way/ex34 Dynamic Array/scr/lcthw/*.h",
+		"/home/shane/GitHub/C/Learn C the hard Way/ex34 Dynamic Array/scr/lcthw/*.*",
+		"/home/shane/GitHub/C/Curiosity Questions and Findings/14 - Learning about bitwise operators/main.c",
+		"/home/shane/GitHub/C/Curiosity Questions and Findings/14 - Learning about bitwise operators/man.c",
+		"/home/shane/GitHub/C/Learn C the hard Way/ex35.1 RadixMap and Sort/test/radixmap_tests.c",
+		"/home/shane/GitHub/C/Learn C the hard Way/ex35.1 RadixMap and Sort/Makefile",
+		"/home/shane/GitHub/Web-Development/Learning Web Design/Chapter 10 - What's up HTML5/2 - Drawing with Canvas/index.html",
+		"/usr/include/stdint.h",
+		"/usr/include/malloc.h",
+		"/home/shane/GitHub/CPP/C++ Primer/2 - Variables and Basic datatypes/4 - Reference/Reference.cpp",
+		"/media/shane/Games/Games/Stick Fight/StickFight.exe",
+		"/home/shane/Ash/C/1- Dust off that compiler/main.c",
+		"/home/shane/GitHub/C/Learn C the hard Way/ex35.1 RadixMap and Sort/src/lcthw/radixmap.c",
+		"/home/shane/GitHub/C/Learn C the hard Way/ex35.1 RadixMap and Sort/src/lcthw/radixmap.h"
+	],
+	"find":
+	{
+		"height": 75.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			";\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/Game.c",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2076,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/Texture.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7934,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/Window.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4015,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/dbg.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5511,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/Game.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 824,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/Texture.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2438,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/Window.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 638,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 75.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 146.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/GitHub/Game-Development/SDL - Lazy Foo Tutorials/39 - Tiling/SUBL/Tiling.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 152.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -25,8 +25,6 @@ int run()
 		render();	
 	}
 	
-	close();
-	
 	return 0;
 error:
 	return 1;
@@ -38,7 +36,8 @@ int main(int arg, char* argv[])
 	check(r == 0, "Something went wrong!");
 	
 error: // close with fallthrough
-	
+	// Close all of our windows
+	Window_destroy(gWindow);
 	// Quit SDL subsystems
 	TTF_Quit();
 	IMG_Quit();
@@ -115,6 +114,5 @@ void render()
 
 void close()
 {
-	// Close all of our windows
-	Window_destroy(gWindow);
+	
 }
