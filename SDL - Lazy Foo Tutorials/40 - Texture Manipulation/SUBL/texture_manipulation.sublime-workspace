@@ -11,9 +11,45 @@
 			"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/Game.c",
 			"settings":
 			{
-				"buffer_size": 2076,
+				"buffer_size": 2064,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
-			}
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"cut",
+					null,
+					"AQAAAOQHAAAAAAAA5AcAAAAAAAA1AAAALy8gQ2xvc2UgYWxsIG9mIG91ciB3aW5kb3dzCglXaW5kb3dfZGVzdHJveShnV2luZG93KTs",
+					"AQAAAAAAAAABAAAAGQgAAAAAAADkBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"paste",
+					null,
+					"AQAAACECAAAAAAAAVgIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAIQIAAAAAAAAhAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					2,
+					"left_delete",
+					null,
+					"AgAAAHYBAAAAAAAAdgEAAAAAAAAJAAAACWNsb3NlKCk7dQEAAAAAAAB1AQAAAAAAAAEAAAAK",
+					"AQAAAAAAAAABAAAAfwEAAAAAAAB2AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					12,
+					2,
+					"left_delete",
+					null,
+					"AgAAAHQBAAAAAAAAdAEAAAAAAAABAAAACXMBAAAAAAAAcwEAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAAdQEAAAAAAAB1AQAAAAAAAAAAAAAAAPC/"
+				]
+			]
 		},
 		{
 			"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/Texture.c",
@@ -28,14 +64,6 @@
 			"settings":
 			{
 				"buffer_size": 4015,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/dbg.h",
-			"settings":
-			{
-				"buffer_size": 5511,
 				"line_ending": "Unix"
 			}
 		},
@@ -96,6 +124,7 @@
 	},
 	"file_history":
 	[
+		"/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/dbg.h",
 		"/home/shane/Ash/C/let us C /CH 2/2 - logical operator/pro.c",
 		"/home/shane/Ash/C/let us C /CH 1/1 /main.c",
 		"/home/shane/Ash/C/let us C /CH 1/1 /a.out",
@@ -213,15 +242,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2076,
+						"buffer_size": 2064,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1704,
+								1704
 							]
 						],
 						"settings":
@@ -231,7 +260,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1980.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -265,7 +294,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"stack_multiselect": false,
 					"type": "text"
 				},
@@ -296,43 +325,12 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/dbg.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5511,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 4,
 					"stack_multiselect": false,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/Game.h",
 					"semi_transient": false,
 					"settings":
@@ -361,7 +359,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/Texture.h",
 					"semi_transient": false,
 					"settings":
@@ -392,7 +390,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/Window.h",
 					"semi_transient": false,
 					"settings":
