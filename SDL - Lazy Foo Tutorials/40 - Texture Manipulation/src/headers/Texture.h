@@ -12,7 +12,7 @@
 // Texture Data Structure
 typedef struct Texture{
 	SDL_Texture* texture; // Holds the SDL_Texture
-	SDL_Surface* pixels; // Holds the pixel data of the image
+	SDL_Surface* pixels_surface; // Holds the pixel data of the image
 	size_t width; // Defines the width and height and used size_t such that it remains positive
 	size_t height;
 }Texture;

@@ -14,11 +14,19 @@ error:
 
 void Texture_destroy(Texture* texture)
 {
+	check(texture != NULL, "ERROR : Invalid Texture!");
 	// Only getting rid of the SDL_Texture
 	SDL_DestroyTexture(texture->texture);
 	texture->texture = NULL;
 	texture->width = 0;
 	texture->height = 0;
+	
+	debug(texture->pixels_surface != NULL, "ERROR : Invalid Pixels Surface!");
+	SDL_FreeSurface(texture->pixels_surface);
+	texture->pixels_surface = NULL;
+
+error:
+	return;
 }
 
 bool Texture_loadFromFile(Window* window, Texture* texture, const char* filepath)
@@ -69,12 +77,12 @@ bool Texture_loadPixelsFromFile(Window* window, Texture* texture, const char* fi
 	check(loaded_surface != NULL, "ERROR : Failed to load the Image File!, SDL Error : %s", SDL_GetError());
 	
 	// Conver the surface to display format
-	texture->pixels = SDL_ConvertSurfaceFormat(loaded_surface, SDL_GetWindowPixelFormat(window->window), 0);
-	check(texture->pixels != NULL, "ERROR : Failed to convert the loaded texture to display format!, SDL Error : %s", SDL_GetError());
+	texture->pixels_surface = SDL_ConvertSurfaceFormat(loaded_surface, SDL_GetWindowPixelFormat(window->window), 0);
+	check(texture->pixels_surface != NULL, "ERROR : Failed to convert the loaded texture to display format!, SDL Error : %s", SDL_GetError());
 	
 	// Get Image Dimensions
-	texture->width = texture->pixels->w;
-	texture->height = texture->pixels->h;
+	texture->width = texture->pixels_surface->w;
+	texture->height = texture->pixels_surface->h;
 	
 	// Get rid of the old loaded surface 
 	SDL_FreeSurface(loaded_surface);
@@ -87,21 +95,21 @@ error:
 bool Texture_loadFromPixels(Window* window, Texture* texture)
 {
 	// only load if pixels exists
-	check(texture->pixels != NULL, "ERROR : No Pixels Loaded!, SDL Error : %s", SDL_GetError());
+	check(texture->pixels_surface != NULL, "ERROR : No Pixels Loaded!, SDL Error : %s", SDL_GetError());
 	
 	// Color key the image
-	SDL_SetColorKey(texture->pixels, SDL_TRUE, SDL_MapRGB(texture->pixels->format, 0, 255, 255));
+	SDL_SetColorKey(texture->pixels_surface, SDL_TRUE, SDL_MapRGB(texture->pixels_surface->format, 0, 255, 255));
 	
 	// Create texture from surface pixels
-	texture->texture = SDL_CreateTextureFromSurface(window->renderer, texture->pixels);
+	texture->texture = SDL_CreateTextureFromSurface(window->renderer, texture->pixels_surface);
 	check(texture != NULL, "ERROR : Failed to create texture from surface pixels!, SDL Error : %s", SDL_GetError());
 	
 	// Get Image Dimensions
-	texture->width = texture->pixels->w;
-	texture->height = texture->pixels->h;
+	texture->width = texture->pixels_surface->w;
+	texture->height = texture->pixels_surface->h;
 	
 	// Get rid of old loaded pixels
-	SDL_FreeSurface(texture->pixels);
+	SDL_FreeSurface(texture->pixels_surface);
 	
 	return true;
 error: 
@@ -217,4 +225,47 @@ bool Texture_loadFromRenderedText(Window* window, Texture* texture, TTF_Font* fo
 	return true;
 error:
 	return false;
+}
+
+Uint32* Texture_getPixels32(Texture* texture)
+{
+	check(texture != NULL, "ERROR : Invalid Texture!");
+	check(texture->pixels_surface != NULL, "ERROR : Invalid Acess of Pixels!");
+	
+	Uint32* pixels = NULL;
+	
+	pixels = texture->pixels_surface->pixels;
+	
+	return pixels;
+error:
+	return NULL;
+}
+
+Uint32 Texture_getPitch32(Texture* texture)
+{
+	check(texture != NULL, "ERROR : Invalid Texture!");
+	check(texture->pixels_surface != NULL, "ERROR : Invalid Access of Pixels!");
+	
+	Uint32 pitch = 0;
+	
+	pitch = texture->pixels_surface->pitch / 4;
+	
+	return pitch;
+error:
+	return 0;
+}
+
+// This function simply returns a 32bit pixel in the internal format
+Uint32 Texture_mapRGBA(Texture* texture, Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha)
+{
+	check(texture != NULL, "ERROR : Invalid Texture!");
+	check(texture->pixels_surface != NULL, "ERROR : Invalid Access of Pixels!");
+	
+	Uint32 pixel = 0;
+	
+	pixel = SDL_MapRGBA(texture->pixels_surface->format, red, green, blue, alpha);
+	
+	return pixel;
+error:
+	return 0;
 }

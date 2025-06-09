@@ -10,6 +10,8 @@ const int SCREEN_HEIGHT = 480;
 TTF_Font* font = NULL;
 bool quit = false;
 
+Texture stickman;
+
 int run()
 {
 	bool r = init();
@@ -65,6 +67,27 @@ error:
 
 bool loadMedia()
 {
+	bool r = Texture_loadPixelsFromFile(gWindow, &stickman, "Assets/foo.png");
+	check(r == true, "ERROR : Failed to load the pixels from the file!");
+	
+	// Get the pixel data
+	Uint32* pixels = Texture_getPixels32(&stickman);
+	int pixel_count = Texture_getPitch32(&stickman) * Texture_getHeight(&stickman);
+
+	// Map colors, for manually color keying
+	Uint32 color_key = Texture_mapRGBA(&stickman, 255, 0, 255, 255);
+	Uint32 transparent = Texture_mapRGBA(&stickman, 255, 255, 255, 0);
+	
+	// Color key pixels
+	for(int i = 0;i < pixel_count;i++){
+		if(pixels[i] == color_key){
+			pixels[i] = transparent;
+		}	
+	}
+	
+	// Create the texture from manually color keyed pixels
+	r = Texture_loadFromPixels(gWindow, &stickman);
+	check(r == true, "ERROR : Failed to create texture from pixels!");
 	
 	return true;
 error:
@@ -95,13 +118,14 @@ void update()
 void Window_render(Window* window)
 {
 	// Again we only want to draw to a window if its not minimized
-	if(!window->minimized){
+	if(!gWindow->minimized){
 		// clear screen
-		SDL_SetRenderDrawColor(window->renderer, 255,255,255,255);
-		SDL_RenderClear(window->renderer);
+		SDL_SetRenderDrawColor(gWindow->renderer, 255,255,255,255);
+		SDL_RenderClear(gWindow->renderer);
 	
+		Texture_render(gWindow, &stickman, (SCREEN_WIDTH / 2) - Texture_getWidth(&stickman), (SCREEN_HEIGHT / 2) - Texture_getHeight(&stickman), NULL);
 		// update screen
-		SDL_RenderPresent(window->renderer);
+		SDL_RenderPresent(gWindow->renderer);
 		
 	}
 }
