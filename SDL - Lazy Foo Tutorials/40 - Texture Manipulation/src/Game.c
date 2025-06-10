@@ -73,7 +73,7 @@ bool loadMedia()
 	// Get the pixel data
 	Uint32* pixels = Texture_getPixels32(&stickman);
 	int pixel_count = Texture_getPitch32(&stickman) * Texture_getHeight(&stickman);
-
+	
 	// Map colors, for manually color keying
 	Uint32 color_key = Texture_mapRGBA(&stickman, 255, 0, 255, 255);
 	Uint32 transparent = Texture_mapRGBA(&stickman, 255, 255, 255, 0);

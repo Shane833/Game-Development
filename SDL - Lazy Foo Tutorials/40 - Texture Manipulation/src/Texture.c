@@ -246,6 +246,11 @@ Uint32 Texture_getPitch32(Texture* texture)
 	check(texture != NULL, "ERROR : Invalid Texture!");
 	check(texture->pixels_surface != NULL, "ERROR : Invalid Access of Pixels!");
 	
+	// Pitch kind of acts like width, depicting how much memory in bits
+	// it takes for the horizontal component (hence the width)
+	// When we divide the total bits by 4 hence acquiring the no. of bytes
+	// it turns out to be equivalent to the no. of pixels in the texture horizontally
+	
 	Uint32 pitch = 0;
 	
 	pitch = texture->pixels_surface->pitch / 4;
