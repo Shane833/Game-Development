@@ -11,7 +11,7 @@
 			"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/Game.c",
 			"settings":
 			{
-				"buffer_size": 2064,
+				"buffer_size": 3014,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			},
@@ -23,7 +23,7 @@
 					"cut",
 					null,
 					"AQAAAOQHAAAAAAAA5AcAAAAAAAA1AAAALy8gQ2xvc2UgYWxsIG9mIG91ciB3aW5kb3dzCglXaW5kb3dfZGVzdHJveShnV2luZG93KTs",
-					"AQAAAAAAAAABAAAAGQgAAAAAAADkBwAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAZCAAAAAAAAOQHAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					6,
@@ -31,7 +31,7 @@
 					"paste",
 					null,
 					"AQAAACECAAAAAAAAVgIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAIQIAAAAAAAAhAgAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAhAgAAAAAAACECAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					9,
@@ -39,7 +39,7 @@
 					"left_delete",
 					null,
 					"AgAAAHYBAAAAAAAAdgEAAAAAAAAJAAAACWNsb3NlKCk7dQEAAAAAAAB1AQAAAAAAAAEAAAAK",
-					"AQAAAAAAAAABAAAAfwEAAAAAAAB2AQAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB/AQAAAAAAAHYBAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					12,
@@ -47,7 +47,7 @@
 					"left_delete",
 					null,
 					"AgAAAHQBAAAAAAAAdAEAAAAAAAABAAAACXMBAAAAAAAAcwEAAAAAAAABAAAACg",
-					"AQAAAAAAAAABAAAAdQEAAAAAAAB1AQAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB1AQAAAAAAAHUBAAAAAAAAAAAAAAAA8L8"
 				]
 			]
 		},
@@ -55,7 +55,7 @@
 			"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/Texture.c",
 			"settings":
 			{
-				"buffer_size": 7934,
+				"buffer_size": 9253,
 				"line_ending": "Unix"
 			}
 		},
@@ -79,7 +79,7 @@
 			"file": "/home/shane/GitHub/Game-Development/SDL - Lazy Foo Tutorials/40 - Texture Manipulation/src/headers/Texture.h",
 			"settings":
 			{
-				"buffer_size": 2438,
+				"buffer_size": 2446,
 				"line_ending": "Unix"
 			}
 		},
@@ -242,15 +242,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2064,
+						"buffer_size": 3014,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1704,
-								1704
+								0,
+								0
 							]
 						],
 						"settings":
@@ -260,7 +260,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1980.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -273,7 +273,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7934,
+						"buffer_size": 9253,
 						"regions":
 						{
 						},
@@ -364,7 +364,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2438,
+						"buffer_size": 2446,
 						"regions":
 						{
 						},
