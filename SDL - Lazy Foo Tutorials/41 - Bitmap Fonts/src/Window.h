@@ -6,19 +6,19 @@
 #include <dbg.h>
 
 typedef struct{
-	    /* Window Members */
-	SDL_Window	   *	window; 
-	SDL_Renderer   *	renderer; 
-	int 				windowID; 
-	    /* Window Dimensions */
-	int 				width;
-	int 				height;
-	    /* Window Focus */
-	bool 				mouse_focus;
-	bool 				keyboard_focus;
-	bool 				fullscreen;
-	bool 				minimized;
-	bool 				shown;
+    /* Window Members */
+	SDL_Window * window; 
+	SDL_Renderer * renderer; 
+	int windowID; 
+    /* Window Dimensions */
+	int width;
+	int height;
+    /* Window Focus */
+	bool mouse_focus;
+	bool keyboard_focus;
+	bool fullscreen;
+	bool minimized;
+	bool shown;
 }Window;
 
 // Window Functions

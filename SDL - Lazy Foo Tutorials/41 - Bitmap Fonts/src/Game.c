@@ -1,7 +1,7 @@
 #include <Game.h>
 
 // Usual Global Variables
-Texture stickman;
+BitmapFont * bfont = NULL;
 
 int run()
 {
@@ -49,6 +49,10 @@ bool init()
 	// Here we initialize the window
 	window = Window_create(SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 	check(window != NULL, "ERROR : Failed to create window");
+
+	// Create the font
+	bfont = BitmapFont_create();
+	check(bfont != NULL, "ERROR : Failed to initialize Bitmap Font!");
 	
 	return true;
 error:
@@ -58,7 +62,10 @@ error:
 
 bool loadMedia()
 {
-	
+	// Build the font
+	bool r = BitmapFont_buildFont(bfont, window, "Assets/lazyfont.png");
+	check(r != false, "ERROR : Failed to build Bitmap Font!");
+
 	return true;
 error:
 	return false;
@@ -81,6 +88,7 @@ void handleEvents()
 
 void update()
 {
+
 }
 
 // We declared this function to be extern in the Window.h file
@@ -92,7 +100,9 @@ void Window_render(Window * window)
 		// clear screen
 		SDL_SetRenderDrawColor(window->renderer, 255,255,255,255);
 		SDL_RenderClear(window->renderer);
-	
+		
+		BitmapFont_render(bfont, window, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, "Hello!");
+
 		// update screen
 		SDL_RenderPresent(window->renderer);
 		

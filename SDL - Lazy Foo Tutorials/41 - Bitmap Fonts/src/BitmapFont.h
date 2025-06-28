@@ -4,10 +4,10 @@
 #include <Texture.h>
 
 typedef struct{
-	Texture 	font_texture;
-	SDL_Rect 	chars[256]; // Contains the coordinates of all the characaters
-	int 		space;
-	int 		new_line; // spacing variables
+	Texture * font_texture;
+	SDL_Rect chars[256]; // Contains the coordinates of all the characaters
+	int space;
+	int new_line; // spacing variables
 }BitmapFont;
 
 BitmapFont* BitmapFont_create();

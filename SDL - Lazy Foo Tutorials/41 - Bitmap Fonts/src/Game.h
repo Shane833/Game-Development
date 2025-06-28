@@ -8,6 +8,7 @@
 #include <Window.h>
 #include <Texture.h>
 #include <dbg.h>
+#include <BitmapFont.h>
 
 // Usual Global Variables
 Window * window = NULL;

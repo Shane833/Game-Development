@@ -4,8 +4,13 @@
 // Initializes the variables to their equivalent zeroes
 Texture * Texture_create()
 {
-	Texture * result = calloc(1, sizeof(Texture));
+	Texture * result = malloc(sizeof(Texture));
 	check(result != NULL, "Failed to create a custom Texture");
+
+	result->texture = NULL;
+	result->pixels_surface = NULL;
+	result->width = 0;
+	result->height = 0;
 		
 	return result;
 error:
@@ -16,20 +21,23 @@ void Texture_destroy(Texture * texture)
 {
 	check(texture != NULL, "ERROR : Invalid Texture!");
 	// Only getting rid of the SDL_Texture
-	SDL_DestroyTexture(texture->texture);
+	if(texture->texture != NULL){
+		SDL_DestroyTexture(texture->texture);
+	}
 	texture->texture = NULL;
 	texture->width = 0;
 	texture->height = 0;
 	
-	debug(texture->pixels_surface != NULL, "ERROR : Invalid Pixels Surface!");
-	SDL_FreeSurface(texture->pixels_surface);
+	if(texture->pixels_surface != NULL){
+		SDL_FreeSurface(texture->pixels_surface);	
+	}
 	texture->pixels_surface = NULL;
 
 error:
 	return;
 }
 
-bool Texture_loadFromFile(Window * window, Texture * texture, const char * filepath)
+bool Texture_loadFromFile(Texture * texture, Window * window, const char * filepath)
 {
 	// First we deallocate the texture if there is already one loaded in it
 	Texture_destroy(texture);
@@ -67,7 +75,7 @@ error:
 	return false;
 }
 
-bool Texture_loadPixelsFromFile(Window * window, Texture * texture, const char * filepath)
+bool Texture_loadPixelsFromFile(Texture * texture, Window * window, const char * filepath)
 {
 	// Free pre-existing assets
 	Texture_destroy(texture);
@@ -92,7 +100,7 @@ error:
 	return false;
 }
 
-bool Texture_loadFromPixels(Window * window, Texture * texture)
+bool Texture_loadFromPixels(Texture * texture, Window * window)
 {
 	// only load if pixels exists
 	check(texture->pixels_surface != NULL, "ERROR : No Pixels Loaded!, SDL Error : %s", SDL_GetError());
@@ -116,7 +124,7 @@ error:
 	return false;
 }
 
-void Texture_render(Window * window, Texture * texture, int x, int y, SDL_Rect * clip)
+void Texture_render(Texture * texture, Window * window, int x, int y, SDL_Rect * clip)
 {	
 	// Here we will define the position as to where we want to display our texture
 	// First create a SDL_Rect for defining the dimension and position
@@ -136,7 +144,7 @@ error:
 	SDL_RenderCopy(window->renderer, texture->texture, NULL, &render_quad); // This is in the case the clip is not provided 
 }
 
-void Texture_renderEx(Window * window, Texture * texture, int x, int y, SDL_Rect * clip, double angle, SDL_Point * center, SDL_RendererFlip flip)
+void Texture_renderEx(Texture * texture, Window * window, int x, int y, SDL_Rect * clip, double angle, SDL_Point * center, SDL_RendererFlip flip)
 {
 	// Added more functionality :
 	// now the function takes 3 additional arguments that are:
@@ -201,7 +209,7 @@ size_t Texture_getHeight(Texture * texture)
 	return texture->height;
 }
 
-bool Texture_loadFromRenderedText(Window * window, Texture * texture, TTF_Font * font, const char * text, SDL_Color text_color)
+bool Texture_loadFromRenderedText(Texture * texture, Window * window, TTF_Font * font, const char * text, SDL_Color text_color)
 {
 	// Get rid of the preexisting texture
 	Texture_destroy(texture);

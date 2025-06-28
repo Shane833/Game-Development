@@ -12,22 +12,22 @@
 // Texture Data Structure
 typedef struct Texture{
 	/* Texture Members */
-	SDL_Texture  * 	texture; 
-	SDL_Surface  * 	pixels_surface; // Holds the pixel data of the image
-	size_t 			width; 
-	size_t 			height;
+	SDL_Texture * texture; 
+	SDL_Surface * pixels_surface; // Holds the pixel data of the image
+	size_t width; 
+	size_t height;
 }Texture;
 
 // Functions
-Texture * Texture_create(); // Initializes the variables
+Texture* Texture_create(); // Initializes the variables
 bool Texture_loadFromFile(Texture * texture, Window * window, const char * filepath); // Loads an image from a specified path
 bool Texture_loadPixelsFromFile(Texture * texture, Window * window, const char * filepath); // Loads the image into pixel buffer
-bool Texture_loadFromPixels(Texture * texture, Window * window, ); // Creates an image from pre-loaded textures
+bool Texture_loadFromPixels(Texture * texture, Window * window); // Creates an image from pre-loaded textures
 bool Texture_loadFromRenderedText(Texture * texture, Window * window, TTF_Font * font, const char * text, SDL_Color text_color); // This function will return images based on the font and the color and obviosuly the text too duh!
 
 size_t Texture_getWidth(Texture * texture); // Returns the image width
 size_t Texture_getHeight(Texture * texture); // Returns the image height
-Uint32 * Texture_getPixels32(Texture * texture); // Returns the raw pixels of the image
+Uint32* Texture_getPixels32(Texture * texture); // Returns the raw pixels of the image
 Uint32 Texture_getPixel32(Texture * texture, Uint32 x, Uint32 y); // Returns a pixel at (x,y) coordinates
 Uint32 Texture_getPitch32(Texture * texture); // Pitch is the width of texture in memory, it can be of different sizes using pitch we can determine how it is in memory
 
