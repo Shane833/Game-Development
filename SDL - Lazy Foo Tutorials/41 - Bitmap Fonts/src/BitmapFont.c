@@ -206,6 +206,8 @@ void BitmapFont_render(BitmapFont * bmpf, Window * window, int x, int y, const c
 				cur_x += bmpf->chars[ascii].w + 1;
 			}
 		}
+		// free the string
+		bdestroy(str);
 	}
 
 error: // fallthrough
