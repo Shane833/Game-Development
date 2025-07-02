@@ -48,7 +48,7 @@ bool init()
 	check(TTF_Init() != -1, "Failed to intialzie SDL_ttf! TTF_Error: %s", TTF_GetError()); 
 		
 	// Here we initialize the window
-	window = Window_create(SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+	window = Window_create("Texture Streaming", SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 	check(window != NULL, "ERROR : Failed to create window");
 
 	// Create the stream

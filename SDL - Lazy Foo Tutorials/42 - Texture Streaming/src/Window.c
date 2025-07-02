@@ -1,13 +1,16 @@
 #include <Window.h>
 
-Window * Window_create(int width, int height, Uint32 flags)
+Window * Window_create(const char * title, int width, int height, Uint32 flags)
 {
+
 	// This time each window have their separate renderers
 	Window * temp = malloc(sizeof(Window));
 	check(temp != NULL, "ERROR : Failed to create the window!");
 	
+	check(title != NULL, "ERROR : Invalid title!");
+
 	// Create the window
-	temp->window = SDL_CreateWindow("Particle Engine", SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED, width, height, flags);
+	temp->window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED, width, height, flags);
 	check(temp->window != NULL, "ERROR : Failed to create the window!");
 	
 	// Creating the renderer
