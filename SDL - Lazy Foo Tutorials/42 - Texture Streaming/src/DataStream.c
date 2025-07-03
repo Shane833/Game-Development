@@ -22,6 +22,8 @@ error:
 
 bool DataStream_loadMedia(DataStream * stream)
 {
+	check(stream != NULL, "ERROR : Invalid Stream!");
+
 	bstring path = bfromcstr("Assets/foo_walk_");
 	check(path != NULL, "ERROR : Failed to create the path!");
 
@@ -53,5 +55,39 @@ bool DataStream_loadMedia(DataStream * stream)
 	return true;
 error:
 	return false;
+}
+
+void* DataStream_getBuffer(DataStream * stream)
+{
+	check(stream != NULL, "ERROR : Invalid Stream!");
+
+	// simple looping through the images
+
+	stream->delay_frames--;
+
+	if(stream->delay_frames == 0){
+		stream->current_image++;
+		stream->delay_frames = 4;
+	}
+
+	if(stream->current_image == 4){
+		stream->current_image = 0;
+	}
+
+	return (stream->images[stream->current_image])->pixels;
+error:
+	return NULL;
+}
+
+void DataStream_destroy(DataStream * stream)
+{
+	if(stream){
+		for(int i = 0;i < 4;i++){
+			if(stream->images[i]){
+				SDL_FreeSurface(stream->images[i]);
+				stream->images[i] = NULL;
+			}
+		}
+	}
 }
 

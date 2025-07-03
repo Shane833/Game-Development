@@ -11,30 +11,12 @@ Texture* Texture_create()
 	result->pixels_surface = NULL;
 	result->width = 0;
 	result->height = 0;
+	result->raw_pixels = NULL;
+	result->raw_pitch = 0;
 		
 	return result;
 error:
 	return NULL;
-}
-
-bool Texture_createBlank(Texture * texture, Window * window, size_t width, size_t height)
-{
-	check(texture != NULL, "ERROR : Invalid Texture!");
-	check(window != NULL, "ERROR : Invalid Window!");
-
-	// free the pre-existing texture if any
-	Texture_destroy(texture);
-
-	// Create an uninitialized texture
-	texture->texture = SDL_CreateTexture(window->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STREAMING, width, height);
-	check(texture->texture != NULL, "ERROR : Failed to create the texture!, SDL Error : %s", SDL_GetError());
-
-	texture->width = width;
-	texture->height = height;
-
-	return true;
-error:
-	return false;
 }
 
 void Texture_destroy(Texture * texture)
@@ -315,4 +297,77 @@ Uint32 Texture_mapRGBA(Texture * texture, Uint8 red, Uint8 green, Uint8 blue, Ui
 	return pixel;
 error:
 	return 0;
+}
+
+bool Texture_createBlank(Texture * texture, Window * window, size_t width, size_t height)
+{
+	check(texture != NULL, "ERROR : Invalid Texture!");
+	check(window != NULL, "ERROR : Invalid Window!");
+
+	// free the pre-existing texture if any
+	Texture_destroy(texture);
+
+	// Create an uninitialized texture
+	texture->texture = SDL_CreateTexture(window->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STREAMING, width, height);
+	check(texture->texture != NULL, "ERROR : Failed to create the texture!, SDL Error : %s", SDL_GetError());
+
+	texture->width = width;
+	texture->height = height;
+
+	return true;
+error:
+	return false;
+}
+
+bool Texture_lockTexture(Texture * texture)
+{
+	check(texture != NULL, "ERROR : Invalid Texture!");
+	check(texture->raw_pixels == NULL, "INFO : Texture is already locked!");
+
+	// Locking the texture\
+	// This Function grabs the pixel data and pitch of the texture
+	// raw_pixels is not expected to have the original pixel data of the loaded texture
+	// Instead SDL_LockTexture() will provide a new pointer to the pixel data fo the given texture
+	// along with the pitch(in bytes)
+	int lock = SDL_LockTexture(texture->texture, NULL, &(texture->raw_pixels), &(texture->raw_pitch));
+	check(lock == 0, "ERROR : Unable to lock the texture!, SDL Error : %s", SDL_GetError());
+
+
+	return true;
+error:
+	return false;
+}
+
+bool Texture_unlockTexture(Texture * texture)
+{
+	check(texture != NULL, "ERROR : Invalid Texture!");
+	check(texture->raw_pixels != NULL, "INFO : Texture is not locked!");
+
+	// Unlock the texture
+	// Once we have manipulated the pixel data for the texture
+	// unlocking it will send the data to the GPU.
+	SDL_UnlockTexture(texture->texture);
+	texture->raw_pixels = NULL;
+	texture->raw_pitch = 0;
+
+	return true;
+error:
+	return false;
+}
+
+void Texture_copyRawPixels32(Texture * texture, void * pixels)
+{
+	// In this functio we copy the raw pixels from the stream
+	// into the locked texture, the function assumes that the 
+	// size of the image is the same as the size of the texture
+
+	check(texture != NULL, "ERROR : Invalid Texture!");
+	check(pixels != NULL, "ERROR : Invalid Pixels!");
+
+	// make sure the texture is locked 
+	check(texture->texture != NULL, "ERROR : Texture is not locked!");
+	memcpy(texture->raw_pixels, pixels, texture->raw_pitch * texture->height);
+
+error: // fallthrough
+	return;
 }

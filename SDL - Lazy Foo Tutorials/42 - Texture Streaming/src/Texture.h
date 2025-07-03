@@ -43,8 +43,8 @@ void Texture_setBlendMode(Texture * texture, SDL_BlendMode blending); // Set the
 void Texture_setAlpha(Texture * texture, Uint8 alpha); // Modulates the alpha values
 void Texture_copyRawPixels32(Texture * texture, void * pixels); // copies the raw pixels data that we want to stream
 
-void Texture_lockTexture(Texture * texture); // gets the pointer to which we wish to send pixels to 
-void Texture_unlockTexture(Texture * texture); // uploads pixel data to the pixels
+bool Texture_lockTexture(Texture * texture); // gets the pointer to which we wish to send pixels to 
+bool Texture_unlockTexture(Texture * texture); // uploads pixel data to the pixels
 
 void Texture_render(Texture * texture, Window * window, int x, int y, SDL_Rect * clip); // Renders texture at a given point and only a given part
 void Texture_renderEx(Texture * texture, Window * window, int x, int y, SDL_Rect * clip, double angle, SDL_Point * center, SDL_RendererFlip flip); // Provides extra functionality while rendering

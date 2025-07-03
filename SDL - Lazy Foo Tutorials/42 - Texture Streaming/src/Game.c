@@ -1,8 +1,10 @@
 #include <Game.h>
 #include <DataStream.h>
 
+
 // Usual Global Variables
-DataStream * stream = nullptr;
+Texture * streaming_texture = NULL;
+DataStream * stream = NULL;
 
 int run()
 {
@@ -30,8 +32,12 @@ int main(int arg, char* argv[])
 	check(r == 0, "Something went wrong!");
 	
 error: // close with fallthrough
+	// Close the stream
+	DataStream_destroy(stream);
+	stream = NULL;
 	// Close all of our windows
 	Window_destroy(window);
+	window = NULL;
 	// Quit SDL subsystems
 	TTF_Quit();
 	IMG_Quit();
@@ -46,14 +52,18 @@ bool init()
 	check(SDL_Init(SDL_INIT_VIDEO) <= 0, "Failed to initialize SDL! SDL_Error: %s", SDL_GetError());
 	check((IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) > 0, "Failed to initialize SDL_image! IMG_Error: %s", IMG_GetError());
 	check(TTF_Init() != -1, "Failed to intialzie SDL_ttf! TTF_Error: %s", TTF_GetError()); 
-		
+	
 	// Here we initialize the window
 	window = Window_create("Texture Streaming", SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-	check(window != NULL, "ERROR : Failed to create window");
+	check(window != NULL, "ERROR : Failed to create window!");
+
+	// Create a Texture
+	streaming_texture = Texture_create();
+	check(streaming_texture != NULL, "ERROR : Failed to create Texture!");
 
 	// Create the stream
 	stream = DataStream_create();
-	check(stream != nullptr, "ERROR : Failed to create the stream!");
+	check(stream != NULL, "ERROR : Failed to create the stream!");
 	
 	return true;
 error:
@@ -63,7 +73,11 @@ error:
 
 bool loadMedia()
 {
-	bool r = DataStream_loadMedia(stream);
+	// Create a blank texture
+	bool r = Texture_createBlank(streaming_texture, window, 64, 205);
+	check(r != false, "ERROR : Failed to create blank texture!");
+
+	r = DataStream_loadMedia(stream);
 	check(r != false, "ERROR : Failed to load stream media!");
 
 	return true;
@@ -101,7 +115,14 @@ void Window_render(Window * window)
 		SDL_SetRenderDrawColor(window->renderer, 255,255,255,255);
 		SDL_RenderClear(window->renderer);
 		
-		
+		// Copy frame from buffer
+		Texture_lockTexture(streaming_texture);
+		Texture_copyRawPixels32(streaming_texture, DataStream_getBuffer(stream));
+		Texture_unlockTexture(streaming_texture);
+
+		// Render the texture
+		Texture_render(streaming_texture, window, (SCREEN_WIDTH - Texture_getWidth(streaming_texture)) / 2,(SCREEN_HEIGHT - Texture_getHeight(streaming_texture)) / 2, NULL);
+
 		// update screen
 		SDL_RenderPresent(window->renderer);
 		
