@@ -88,6 +88,7 @@ void DataStream_destroy(DataStream * stream)
 				stream->images[i] = NULL;
 			}
 		}
+		free(stream);
 	}
 }
 

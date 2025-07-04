@@ -49,6 +49,7 @@ bool Texture_unlockTexture(Texture * texture); // uploads pixel data to the pixe
 void Texture_render(Texture * texture, Window * window, int x, int y, SDL_Rect * clip); // Renders texture at a given point and only a given part
 void Texture_renderEx(Texture * texture, Window * window, int x, int y, SDL_Rect * clip, double angle, SDL_Point * center, SDL_RendererFlip flip); // Provides extra functionality while rendering
 
-void Texture_destroy(Texture * texture); // Deallocates the memory from the texture
+void Texture_free(Texture * texture); // Deallocates the memory from SDL_Texture and SDL_Surface
+void Texture_destroy(Texture * texture); // Deallocates the memory from the Texture
 
 #endif

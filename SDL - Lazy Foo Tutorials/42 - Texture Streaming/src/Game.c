@@ -32,12 +32,18 @@ int main(int arg, char* argv[])
 	check(r == 0, "Something went wrong!");
 	
 error: // close with fallthrough
+	// Close the texture
+	Texture_destroy(streaming_texture);
+	streaming_texture = NULL;
+
 	// Close the stream
 	DataStream_destroy(stream);
 	stream = NULL;
+
 	// Close all of our windows
 	Window_destroy(window);
 	window = NULL;
+	
 	// Quit SDL subsystems
 	TTF_Quit();
 	IMG_Quit();

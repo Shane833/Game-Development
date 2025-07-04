@@ -11,12 +11,12 @@
 
 
 // Usual Global Variables
-Window * window = nullptr;
+Window * window = NULL;
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
 const int LEVEL_WIDTH;
 const int LEVEL_HEIGHT;
-TTF_Font * font = nullptr; // globally used font
+TTF_Font * font = NULL; // globally used font
 bool quit = false;
 
 // Functions

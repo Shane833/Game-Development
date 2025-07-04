@@ -19,7 +19,7 @@ error:
 	return NULL;
 }
 
-void Texture_destroy(Texture * texture)
+void Texture_free(Texture * texture)
 {
 	check(texture != NULL, "ERROR : Invalid Texture!");
 	// Only getting rid of the SDL_Texture
@@ -39,10 +39,33 @@ error:
 	return;
 }
 
+void Texture_destroy(Texture * texture) // destroys the texture
+{
+	if(texture){
+		// Only getting rid of the SDL_Texture
+		if(texture->texture != NULL){
+		SDL_DestroyTexture(texture->texture);
+		}
+		texture->texture = NULL;
+	
+		if(texture->pixels_surface != NULL){
+			SDL_FreeSurface(texture->pixels_surface);	
+		}
+		texture->pixels_surface = NULL;
+
+		free(texture);
+	}
+	
+
+
+error:
+	return;
+}
+
 bool Texture_loadFromFile(Texture * texture, Window * window, const char * filepath)
 {
 	// First we deallocate the texture if there is already one loaded in it
-	Texture_destroy(texture);
+	Texture_free(texture);
 	
 	// The final texture
 	SDL_Texture * new_texture = NULL;
@@ -80,7 +103,7 @@ error:
 bool Texture_loadPixelsFromFile(Texture * texture, Window * window, const char * filepath)
 {
 	// Free pre-existing assets
-	Texture_destroy(texture);
+	Texture_free(texture);
 	
 	// Load the image at specified path
 	SDL_Surface * loaded_surface = IMG_Load(filepath);
@@ -214,7 +237,7 @@ size_t Texture_getHeight(Texture * texture)
 bool Texture_loadFromRenderedText(Texture * texture, Window * window, TTF_Font * font, const char * text, SDL_Color text_color)
 {
 	// Get rid of the preexisting texture
-	Texture_destroy(texture);
+	Texture_free(texture);
 	
 	// Render the text surface
 	// For rendering text use the TTF_RenderText_ *(TTF_Font *, text, SDL_Color)
@@ -305,7 +328,7 @@ bool Texture_createBlank(Texture * texture, Window * window, size_t width, size_
 	check(window != NULL, "ERROR : Invalid Window!");
 
 	// free the pre-existing texture if any
-	Texture_destroy(texture);
+	Texture_free(texture);
 
 	// Create an uninitialized texture
 	texture->texture = SDL_CreateTexture(window->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STREAMING, width, height);
