@@ -17,8 +17,8 @@ TYPES :
    -> Now remember for a complex statement make sure to enclose it some brackets({} or ()) 	
 */
 
-#ifndef __dbg_h__ // This is a pre-processor directive to protect the header from being included multiple times
-#define __dbg_h__ // It says if not defined __dbg_h__ then defined it or else skip that whole block
+#ifndef dbg_h // This is a pre-processor directive to protect the header from being included multiple times
+#define dbg_h // It says if not defined __dbg_h__ then defined it or else skip that whole block
 
 #include <stdio.h>
 #include <errno.h>
@@ -70,15 +70,17 @@ TYPES :
 
 // This macro define the previous check macor however for logging error it uses the debug macro
 // So in case we compile the program in release mode, it will still do the cleanup but won't log any messages to the console
-#define check_debug(A, M, ...) if((!A)) {debug(M, ##__VA_ARGS__); errno = 0; goto error; }
+#define check_debug(A, M, ...) if(!(A)) {debug(M, ##__VA_ARGS__); errno = 0; goto error; }
 
 #endif
 
 // Using the character '\' is optional as it works as an escape character, which lets us jump to the next line
 // while still continuing the flow of the program
 // Eg : You can define a statement to be printed like this
+/*
 // 1. printf("Hello there");
 // 2. printf("Hello\
 			there");
+*/
 // Both ways are valid 
 // Using '\' character we can still continue writing our statement even when its in new line

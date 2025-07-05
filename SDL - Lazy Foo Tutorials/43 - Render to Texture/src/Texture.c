@@ -55,11 +55,6 @@ void Texture_destroy(Texture * texture) // destroys the texture
 
 		free(texture);
 	}
-	
-
-
-error:
-	return;
 }
 
 bool Texture_loadFromFile(Texture * texture, Window * window, const char * filepath)
@@ -349,7 +344,7 @@ bool Texture_lockTexture(Texture * texture)
 	check(texture != NULL, "ERROR : Invalid Texture!");
 	check(texture->raw_pixels == NULL, "INFO : Texture is already locked!");
 
-	// Locking the texture\
+	// Locking the texture
 	// This Function grabs the pixel data and pitch of the texture
 	// raw_pixels is not expected to have the original pixel data of the loaded texture
 	// Instead SDL_LockTexture() will provide a new pointer to the pixel data fo the given texture
