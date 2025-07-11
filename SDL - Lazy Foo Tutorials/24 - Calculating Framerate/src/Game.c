@@ -9,30 +9,6 @@ Timer * fps_timer = NULL; // timer to keep track of ms passed
 bstring time_text = NULL; // used for string as a time
 int counted_frames = 0; // counts the no. of frames per second
 
-int run()
-{
-	bool r = init();
-	check(r == true, "Something went wrong");
-	
-	r = loadMedia();
-	check(r == true, "Something went wrong");
-	
-	// Start the timer before entering the loop
-	Timer_start(fps_timer);
-
-	while(!quit)
-	{	
-		handleEvents();
-		update();
-		render();	
-		// Increment the no. of frames passed each time we complete the loop
-		counted_frames++;
-	}
-	
-	return 0;
-error:
-	return 1;
-}
 
 int main(int arg, char* argv[])
 {
@@ -67,6 +43,32 @@ error: // close with fallthrough
 
 	return r;
 }
+
+int run()
+{
+	bool r = init();
+	check(r == true, "Something went wrong");
+	
+	r = loadMedia();
+	check(r == true, "Something went wrong");
+	
+	// Start the timer before entering the loop
+	Timer_start(fps_timer);
+
+	while(!quit)
+	{	
+		handleEvents();
+		update();
+		render();	
+		// Increment the no. of frames passed each time we complete the loop
+		counted_frames++;
+	}
+	
+	return 0;
+error:
+	return 1;
+}
+
 
 // Function definitions
 bool init()
