@@ -1,4 +1,4 @@
-CFLAGS=-Wall -g -O2 -Isrc
+CFLAGS=-Wall -g -O2 -Isrc -Wpedantic -std=c23
 LIBS=-lmingw32 -lSDL2main -lSDL2_image -lSDL2_ttf -lSDL2
 LIBSL = -lSDL2main -lSDL2_image -lSDL2_ttf -lSDL2
 SANITIZE = -fsanitize=address
