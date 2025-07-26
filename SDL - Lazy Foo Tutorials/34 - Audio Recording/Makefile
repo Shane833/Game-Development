@@ -18,7 +18,7 @@ windows: compile link
 linux: CFLAGS += $(SANITIZE)
 linux: compile linkl
 
-debug: CFLAGS += -DNDEBUG
+debug: CFLAGS = -Og -ggdb3 -Wall -Wextra -Isrc -Wpedantic -std=c23 -DNDEBUG
 debug: compile link
 
 compile: $(SOURCES) $(OBJECTS)

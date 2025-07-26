@@ -138,7 +138,7 @@ bool loadMedia()
 	// to be selected by the user
 	for(int i = 0;i < recording_device_count;i++){
 		char ibuff[2]; // stores the string version of i
-		sprintf(ibuff, "%d",i);
+		snprintf(ibuff, sizeof(ibuff), "%d", i);
 
 		// bstring for concatenation
 		bstring prompt_text = bfromcstr(ibuff);
