@@ -18,6 +18,7 @@ const int LEVEL_WIDTH;
 const int LEVEL_HEIGHT;
 TTF_Font * font = NULL; // globally used font
 bool quit = false;
+SDL_Event e; // Queue to store the events
 
 // Functions
 bool init(); // Intializes subsystems and 

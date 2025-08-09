@@ -132,8 +132,6 @@ bool loadMedia()
 		recording_device_count = MAX_RECORDING_DEVICES;
 	}
 
-	
-
 	// Then we fetch the names of these devices and display them
 	// to be selected by the user
 	for(int i = 0;i < recording_device_count;i++){
@@ -167,18 +165,99 @@ error:
 }
 
 void handleEvents()
-{
-	SDL_Event e; // Queue to store the events
-	
+{	
 	while(SDL_PollEvent(&e) != 0){
 		if(e.type == SDL_QUIT){
 			quit = true;
+		}
+
+		// Do current state event handling
+		switch(current_state){
+			// User is selecting recording devices
+			case SELECTING_DEVICE:
+				// on key press
+				if(e.type == SDL_KEYDOWN){
+					// Handle Key Press form 0 to 9
+					if(e.key.keysym.sym >= SDLK_0 && e.key.keysym.sym <= SDLK_9){
+						// Get selection index
+						int index = e.key.keysym.sym - SDLK_0;
+						// check the validity of the index
+						if(index < recording_device_count){
+							// Default audio spec
+							SDL_AudioSpec desired_recording_spec;
+							SDL_zero(desired_recording_spec);
+							desired_recording_spec.freq = 44100;
+							desired_recording_spec.format = AUDIO_F32;
+							desired_recording_spec.channels = 2;
+							desired_recording_spec.samples = 4096;
+							desired_recording_spec.callback = Sound_audioRecordingCallback;
+
+							// Open the recording device, here the 2nd arg SDL_TRUE suggests we want to open a recording device
+							recording_device_ID = SDL_OpenAudioDevice(SDL_GetAudioDeviceName(index, SDL_TRUE), SDL_TRUE, &desired_recording_spec, &received_recording_spec, SDL_AUDIO_ALLOW_FORMAT_CHANGE);	
+							
+							// Device failed to open
+							if(recording_device_ID == 0){
+								log_err("Failed to open  recording device! SDL Error : %s", SDL_GetError());
+								// Update the text on the prompt texture
+								Texture_loadFromRenderedText(prompt_texture, window, font, "Failed to open recording device!", text_color);
+								current_state = ERROR;
+							}else{ 
+								// Device opened successfully
+								// Now we create a spec for playback device
+								SDL_AudioSpec desired_playback_spec;
+								SDL_zero(desired_playback_spec);
+								desired_playback_spec.freq = 44100;
+								desired_playback_spec.format = AUDIO_F32;
+								desired_playback_spec.channels = 2;
+								desired_playback_spec.samples = 4096;
+								desired_playback_spec.callback = Sound_audioPlaybackCallback;
+
+								// Open playback device
+								playback_device_ID = SDL_OpenAudioDevice(NULL, SDL_FALSE, &desired_playback_spec, &received_playback_spec, SDL_AUDIO_ALLOW_FORMAT_CHANGE);
+								
+								// If device failed to open
+								if(playback_device_ID == 0){
+									// Report Error
+									log_err("Failed to open playback device! SDL Error : %s", SDL_GetError());
+									Texture_loadFromRenderedText(prompt_texture, window, font, "Failed to open playback device!", text_color);
+									current_state = ERROR;
+								}else{
+									// Device opened successfully
+
+									// Calculate per sample bytes
+									int bytes_per_sample = received_recording_spec.channels * (SDL_AUDIO_BITSIZE(received_recording_spec.format) / 8 );
+
+									// Calculate bytes per second
+									int bytes_per_second = received_recording_spec.freq * bytes_per_sample;
+
+									// calculate buffer size
+									buffer_byte_size = RECORDING_BUFFER_SECONDS * bytes_per_second;
+
+									// calculate max buffer use
+									buffer_byte_max_position = MAX_RECORDING_SECONDS * bytes_per_second;
+
+									// Allocate and initialize byte buffer
+									recording_buffer = calloc(buffer_byte_size, sizeof(Uint8));
+									// then initialize the memory with all zeroes
+									memset(recording_buffer, 0, buffer_byte_size);
+
+									// go on to the next state
+									Texture_loadFromRenderedText(prompt_texture, window, font, "Press 1 to record for 5 seconds.", text_color);
+									current_state = STOPPED;
+								}
+							}
+						}
+					}
+				}
+				break;
+		
 		}
 		
 		// Handle all the window events
 		Window_handleEvents(window, &e);
 	
-	}	
+	}
+
 }
 
 void update()

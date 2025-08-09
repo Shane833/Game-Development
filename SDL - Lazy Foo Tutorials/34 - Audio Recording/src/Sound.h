@@ -15,19 +15,20 @@ constexpr int RECORDING_BUFFER_SECONDS = MAX_RECORDING_SECONDS + 1;
 
 // Various recording actions we can take
 
-enum{
+typedef enum{
 	SELECTING_DEVICE,
 	STOPPED,
 	RECORDING,
 	RECORDED,
 	PLAYBACK,
 	ERROR
-};
+}RecordingState;
 
 // Recording/Playback callbacks
 // These are the functions that will actually record to and play from our audio buffer
-void Sound_audioRecordingCallback(void * user_data, Uint8 * stream, size_t len);
-void Sound_audioPlaybackCallback(void * user_data, Uint8 * stream, size_t len);
+// Note : Using int for len as this is the format in which the pointer to function is defined
+void Sound_audioRecordingCallback(void * user_data, Uint8 * stream, int len);
+void Sound_audioPlaybackCallback(void * user_data, Uint8 * stream, int len);
 
 // Received audio spec
 // This basically defines how the audio will be recorded/playback on this device
@@ -45,6 +46,11 @@ extern Uint32 buffer_byte_position;
 // Maximum position in data buffer for recording
 // This is the actual 5 seconds of bytes we will be using
 extern Uint32 buffer_byte_max_position;
+// Stores the current state of the recording devices
+extern RecordingState current_state;
+// Audio Devices ID
+extern SDL_AudioDeviceID recording_device_ID;
+extern SDL_AudioDeviceID playback_device_ID;
 
 
 #endif
