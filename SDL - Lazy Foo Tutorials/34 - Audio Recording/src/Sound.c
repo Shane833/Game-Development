@@ -21,10 +21,23 @@ SDL_AudioSpec received_playback_spec;
 
 void Sound_audioRecordingCallback(void * user_data, Uint8 * stream, int len)
 {
+	// This get called at regular intervals whenever we unpause the recording device
 
+	// Copy audio from stream
+	// here we are assigning single chunk of data to each position in the buffer
+	memcpy(&recording_buffer[buffer_byte_position], stream, len);
+
+	// increment the byte position by one chunk
+	buffer_byte_position += len;
 }
 
 void Sound_audioPlaybackCallback(void * user_data, Uint8 * stream, int len)
 {
+	// This gets called at regular intervals whenever we unpause the playback device
 
+	// Copy audio from the buffer and put it in the stream
+	memcpy(stream, &recording_buffer[buffer_byte_position], len);
+
+	// Update the current byte position
+	buffer_byte_position += len;
 }

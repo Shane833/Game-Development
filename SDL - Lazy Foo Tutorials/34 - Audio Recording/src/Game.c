@@ -41,6 +41,12 @@ error: // close with fallthrough
 		}
 	}
 
+	// close the recording buffer
+	if(recording_buffer){
+		free(recording_buffer);
+		recording_buffer = NULL;
+	}
+
 	// Close all of our windows
 	Window_destroy(window);
 	window = NULL;
@@ -201,7 +207,8 @@ void handleEvents()
 								// Update the text on the prompt texture
 								Texture_loadFromRenderedText(prompt_texture, window, font, "Failed to open recording device!", text_color);
 								current_state = ERROR;
-							}else{ 
+							}
+							else{ 
 								// Device opened successfully
 								// Now we create a spec for playback device
 								SDL_AudioSpec desired_playback_spec;
@@ -238,9 +245,10 @@ void handleEvents()
 
 									// Allocate and initialize byte buffer
 									recording_buffer = calloc(buffer_byte_size, sizeof(Uint8));
-									// then initialize the memory with all zeroes
-									memset(recording_buffer, 0, buffer_byte_size);
-
+									if(recording_buffer){
+										// then initialize the memory with all zeroes
+										memset(recording_buffer, 0, buffer_byte_size);
+									} else log_err("Failed to allocate memory!");
 									// go on to the next state
 									Texture_loadFromRenderedText(prompt_texture, window, font, "Press 1 to record for 5 seconds.", text_color);
 									current_state = STOPPED;
@@ -250,7 +258,59 @@ void handleEvents()
 					}
 				}
 				break;
-		
+			
+			case STOPPED:
+				// User getting ready to record
+				if(e.type == SDL_KEYDOWN){
+					// Start recording
+					if(e.key.keysym.sym == SDLK_1){
+						// go back to the beginning of the buffer
+						buffer_byte_position = 0;
+						// start recorinding
+						// The 2nd arg SDL_FALSE, unpauses the device so it starts recording
+						// by default all the devices are paused
+						SDL_PauseAudioDevice( recording_device_ID, SDL_FALSE);
+						// go to the next state
+						// update the prompt
+						Texture_loadFromRenderedText(prompt_texture, window, font, "Recording...", text_color);
+						current_state = RECORDING;
+					}
+				}
+				break;
+			
+			case RECORDED:
+				// User has finished recording
+
+				// On key press
+				if(e.type == SDL_KEYDOWN){
+					// Start playback
+					if(e.key.keysym.sym == SDLK_1){
+						// Go back to the beginning of the buffer
+						buffer_byte_position = 0;
+
+						// Start playback
+						SDL_PauseAudioDevice(playback_device_ID, SDL_FALSE);
+
+						// Go on the next  state
+						Texture_loadFromRenderedText(prompt_texture, window, font, "Playing...", text_color);
+						current_state = PLAYBACK;
+					}
+
+					// Record again
+					if(e.key.keysym.sym == SDLK_2){
+						// Reset the buffer
+						buffer_byte_position = 0;
+						memset(recording_buffer, 0, buffer_byte_position);
+
+						// Start recording
+						SDL_PauseAudioDevice(recording_device_ID, SDL_FALSE);
+
+						// Go to the next state
+						Texture_loadFromRenderedText(prompt_texture, window, font, "Recording...", text_color);
+						current_state = RECORDING;
+					}
+				}
+				break;
 		}
 		
 		// Handle all the window events
@@ -262,12 +322,45 @@ void handleEvents()
 
 void update()
 {
-	
+	// Checking if the audio is still being recorded
+	/* BUG : instead of == I used = */
+	if(current_state == RECORDING){
+		// Lock the callback so that other threads can't access the data
+		SDL_LockAudioDevice(recording_device_ID);
 
-	
+		// Finish recording if we are past the max position
+		if(buffer_byte_position > buffer_byte_max_position){
+			// Stop recording audio
+			// TRUE args stops the recording
+			SDL_PauseAudioDevice(recording_device_ID, SDL_TRUE);
 
-error:
-	return;
+			// Now go to the next state
+			Texture_loadFromRenderedText(prompt_texture, window, font, "Press 1 to playback. Press 2 to record again.", text_color);
+			current_state = RECORDED;
+		}
+
+		// Unlock the audio device
+		SDL_UnlockAudioDevice(recording_device_ID);
+	}
+	/* BUG : instead of '==' I used '=' */
+	else if(current_state == PLAYBACK){
+		// Now we are playing back the recorded data
+		// Lock callback
+		SDL_LockAudioDevice(playback_device_ID);
+
+		// Finishing playback with the same condition
+		if(buffer_byte_position > buffer_byte_max_position){
+			// Stop playig audio
+			SDL_PauseAudioDevice(playback_device_ID, SDL_TRUE);
+
+			// Go on the next state
+			Texture_loadFromRenderedText(prompt_texture, window, font, "Press 1 to playback. Press 2 to record again.", text_color);
+			current_state = RECORDED;
+		}
+
+		// Unlock the audio device
+		SDL_UnlockAudioDevice(playback_device_ID);
+	}
 }
 
 // We declared this function to be extern in the Window.h file
