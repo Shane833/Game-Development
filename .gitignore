@@ -12,3 +12,5 @@ SDL - Lazy Foo Tutorials/24 - Calculating Framerate/Calculating Framerate.sublim
 SDL - Lazy Foo Tutorials/34 - Audio Recording/Audio Recording.sublime-workspace
 SDL - Lazy Foo Tutorials/34 - Audio Recording/src/.tags
 SDL - Lazy Foo Tutorials/34 - Audio Recording/src/.tags_sorted_by_file
+*.sublime-workspace
+*.sublime-workspace
