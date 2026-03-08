@@ -6,7 +6,7 @@
 
 // Usual Global Variables
 SDL_Color text_color = {0,0,0,255};
-Timer * fps_timer = NULL; // timer to keep track of ms passed
+Timer * step_timer = NULL; // timer to keep track of ms passed
 Dot* dot = NULL; // our dot
 SDL_Rect dotCamera = {.x = 0, .y = 0, .w = SCREEN_WIDTH, .h = SCREEN_HEIGHT};
 
@@ -22,8 +22,8 @@ error: // close with fallthrough
 	dot = NULL;
 
 	// Close the timer
-	Timer_destroy(fps_timer);
-	fps_timer = NULL;
+	Timer_destroy(step_timer);
+	step_timer = NULL;
 
 	// Close all of our windows
 	Window_destroy(window);
@@ -50,7 +50,7 @@ int run()
 	check(r == true, "Something went wrong");
 	
 	// Start the timer before entering the loop
-	Timer_start(fps_timer);
+	Timer_start(step_timer);
 
 	while(!quit)
 	{	
@@ -78,8 +78,8 @@ bool init()
 	check(window != NULL, "ERROR : Failed to create window!");
 
 	// Create our timer
-	fps_timer = Timer_create();
-	check(fps_timer != NULL, "ERROR : Failed to create the timer!");
+	step_timer = Timer_create();
+	check(step_timer != NULL, "ERROR : Failed to create the timer!");
 
 	// Creating the dot
 	dot = Dot_create(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
@@ -127,8 +127,14 @@ void handleEvents()
 
 void update()
 {
+    // getTicks() returns the elapsed time since the beginning of the time
+    // and since we reset it after updating the position we only get the 
+    // elapsed time between the frames
+    float time_step = Timer_getTicks(step_timer) / 1000.0f;
 	// Updating the dot position
-	Dot_move(dot, SCREEN_WIDTH, SCREEN_HEIGHT);
+	Dot_move(dot, time_step, SCREEN_WIDTH, SCREEN_HEIGHT);
+    // restart the timer
+    Timer_start(step_timer);
 }
 
 // We declared this function to be extern in the Window.h file

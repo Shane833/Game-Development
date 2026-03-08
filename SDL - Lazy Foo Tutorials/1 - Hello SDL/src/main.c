@@ -19,8 +19,7 @@ int main(int argc,char* argv[])
 	// a file or can be the image inside the window
 	
 	// Initialize SDL
-	if(SDL_Init(SDL_INIT_VIDEO) < 0)
-	{
+	if(SDL_Init(SDL_INIT_VIDEO) < 0){
 		// You cannot directly use the SDL functions directly you would
 		// need to initialize them first and since we are only concerend
 		// with the video subsytem, we initialize it with the SDL_INIT_VIDEO flag

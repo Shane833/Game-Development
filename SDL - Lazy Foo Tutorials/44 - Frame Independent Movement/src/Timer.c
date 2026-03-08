@@ -93,7 +93,7 @@ error: // fallthrough
 
 Uint32 Timer_getTicks(Timer* timer)
 {
-	// storing the timer timer here
+	// storing the timer time here
 	Uint32 time = 0;
 	
 	check(timer != NULL, "Invalid Timer!");

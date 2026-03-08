@@ -48,6 +48,45 @@ error:
 	return false;
 }
 
+// BoxF-BoxF Collision
+bool checkBoxFCollision(const Box_FCollider* a, const Box_FCollider* b)
+{
+	check(a != NULL, "ERROR : Invalid Box_Collider!");
+	check(b != NULL, "ERROR : Invalid Box_Collider!");
+
+// The sides of the rectangle
+	float leftA, leftB;
+	float rightA, rightB;
+	float topA, topB;
+	float bottomA, bottomB;
+	
+	// calculate the sides of the rect A
+	leftA = a->x;
+	rightA = a->x + a->w;
+	topA = a->y;
+	bottomA = a->y + a->h;
+	
+	// calculate the sides of the rect B
+	leftB = b->x;
+	rightB  = b->x + b->w;
+	topB = b->y;
+	bottomB = b->y + b->h;
+	
+	// Now we do our separating axis test and if any of the axis from 
+	// either of the boxes are separate then there is not collision else
+	// they will collide
+
+	if(bottomA <= topB) return false;
+	if(topA >= bottomB) return false;
+	if(rightA <= leftB) return false;
+	if(leftA >= rightB) return false;
+	
+	// if none of the sides of A are outside B then they are colliding
+	return true;
+error:
+	return false;
+}
+
 // Circle-Circle Collision
 bool checkCircleCollision(const Circle_Collider* a, const Circle_Collider* b)
 {

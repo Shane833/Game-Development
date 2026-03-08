@@ -14,9 +14,9 @@ extern const int DOT_VEL;
 
 typedef struct Dot{
 	SDL_Point position;
-	int x_velocity;
-	int y_velocity;
-	Box_Collider box;
+	float x_velocity;
+	float y_velocity;
+	Box_FCollider box;
 }Dot;
 
 // Dot Texture
@@ -36,7 +36,11 @@ void Dot_render(Dot* dot, Window* window, SDL_Rect* camera);
 void Dot_move(Dot* dot, Tile* tiles[], int LEVEL_WIDTH, int LEVEL_HEIGHT); // checks for collision against the given object ( checks collision against an SDL_Rect here )
 */
 // Alternate function for moving the tile 
-void Dot_move(Dot* dot, int LEVEL_WIDTH, int LEVEL_HEIGHT);
+//void Dot_move(Dot* dot, int LEVEL_WIDTH, int LEVEL_HEIGHT);
+
+// New Move function introduced in the tutorial
+void Dot_move(Dot* dot, float time_step, unsigned int LEVEL_WIDTH, unsigned int LEVEL_HEIGHT);
+
 void Dot_setCamera(Dot* dot, SDL_Rect* camera, const int SCREEN_WIDTH, const int SCREEN_HEIGHT, const int LEVEL_WIDTH, const int LEVEL_HEIGHT); // function to center the camera over the dot
 void Dot_destroy(Dot* dot); 
 

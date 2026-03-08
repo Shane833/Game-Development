@@ -4,7 +4,7 @@
 // Global variables
 const int DOT_WIDTH = 20;
 const int DOT_HEIGHT = 20;
-const int DOT_VEL = 5; // reducing the velocity so the effect is more visible
+const int DOT_VEL = 600; // NOTE: 600pixels/60frams = 10pixels/frame which is desired
 
 // Dot Texture
 Texture dotTexture;
@@ -91,6 +91,7 @@ error:  // fallthrough
 }
 */
 
+/*
 // Alternative move function 
 void Dot_move(Dot* dot, int LEVEL_WIDTH, int LEVEL_HEIGHT)
 {
@@ -120,6 +121,49 @@ void Dot_move(Dot* dot, int LEVEL_WIDTH, int LEVEL_HEIGHT)
 
 error: // fallthrough
 	return;
+}
+*/
+
+// New Move function introduced in the tutorial
+void Dot_move(Dot* dot, float time_step, unsigned int LEVEL_WIDTH, unsigned int LEVEL_HEIGHT)
+{
+    // This time the movement will be based on time and not pure pixels as it will provide us
+    // with frame independent movement meaning it will stay consistent regardless of what 
+    // our framerate will be 
+
+    // time_step tells us how much time have passed since last update
+	check(dot != NULL, "Invalid Dot!");
+
+	// move the dot to the left or right
+	dot->position.x += dot->x_velocity * time_step; // multiplying the velocity with the timestep
+	dot->box.x = dot->position.x;
+
+	// If the dot collided or went too far to the left or right or touched a wall
+	if( (dot->position.x < 0) || (dot->position.x + DOT_WIDTH > LEVEL_WIDTH) ){
+		// move back - TODO Since the movement is uniform we can't just subject the velocity from current movement
+        // we have to explicitely place the ball at its correct place
+        dot->position.x = dot->position.x < 0 ? 0 : LEVEL_WIDTH - DOT_WIDTH;
+        dot->box.x = dot->position.x;
+    }
+
+	// move the dot to the up or down
+	dot->position.y += dot->y_velocity * time_step; // doing the same here
+	dot->box.y = dot->position.y;
+
+	// If the dot collided or went too far to the top or bottom
+	if( (dot->position.y < 0) || (dot->position.y + DOT_HEIGHT > LEVEL_HEIGHT) ){
+		// move back TODO
+        /*
+		dot->position.y -= dot->y_velocity;
+		dot->box.y = dot->position.y;
+        */
+        dot->position.y = dot->position.y < 0 ? 0 : LEVEL_HEIGHT - DOT_HEIGHT;
+        dot->box.y = dot->position.y;
+	}
+
+error: // fallthrough
+	return;
+
 }
 
 void Dot_setCamera(Dot* dot, SDL_Rect* camera, const int SCREEN_WIDTH, const int SCREEN_HEIGHT, const int LEVEL_WIDTH, const int LEVEL_HEIGHT)
@@ -163,7 +207,8 @@ void Dot_render(Dot* dot, Window* window, SDL_Rect* camera)
 {
 	check(dot != NULL, "Invalid Dot!" );
 
-	Texture_render(&dotTexture, window, dot->box.x - camera->x, dot->box.y - camera->y, NULL);
+    //TODO Explicitely casting the positions so that compiler won't issue a warning
+	Texture_render(&dotTexture, window, (int)dot->box.x - camera->x, (int)dot->box.y - camera->y, NULL);
 	// By subtracting the camX and camY points we make sure that we keep the dot inside the 
 	// frame of the camera i.e. we are basically changing the origin of the dot from (0,0) to (camX, camY)
 

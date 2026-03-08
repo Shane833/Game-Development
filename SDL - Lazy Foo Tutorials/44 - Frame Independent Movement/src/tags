@@ -1,0 +1,353 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/mnt/d/Shane/Game Development/Game-Development/SDL - Lazy Foo Tutorials/44 - Frame Independent Movement/src/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+BSSSC_BUFF_LEN	bstrlib.c	/^#define BSSSC_BUFF_LEN /;"	d	file:
+BSTRLIB_INCLUDE	bstrlib.h	/^#define BSTRLIB_INCLUDE$/;"	d
+BSTRLIB_NOVSNP	bstrlib.c	/^#  define BSTRLIB_NOVSNP$/;"	d	file:
+BSTRLIB_NOVSNP	bstrlib.h	/^#  define BSTRLIB_NOVSNP$/;"	d
+BSTR_BS_BUFF_LENGTH_GET	bstrlib.h	/^#define BSTR_BS_BUFF_LENGTH_GET /;"	d
+BSTR_ERR	bstrlib.h	/^#define BSTR_ERR /;"	d
+BSTR_OK	bstrlib.h	/^#define BSTR_OK /;"	d
+BSTR_VER_MAJOR	bstrlib.h	/^#define BSTR_VER_MAJOR /;"	d
+BSTR_VER_MINOR	bstrlib.h	/^#define BSTR_VER_MINOR /;"	d
+BSTR_VER_UPDATE	bstrlib.h	/^#define BSTR_VER_UPDATE /;"	d
+BS_BUFF_SZ	bstrlib.c	/^#define BS_BUFF_SZ /;"	d	file:
+Box_Collider	Collider.h	/^typedef SDL_Rect Box_Collider;$/;"	t	typeref:typename:SDL_Rect
+Box_FCollider	Collider.h	/^typedef SDL_FRect Box_FCollider;$/;"	t	typeref:typename:SDL_FRect
+CFCLEN	bstrlib.c	/^#define CFCLEN /;"	d	file:
+Circle_Collider	Collider.h	/^}Circle_Collider;$/;"	t	typeref:struct:__anone7f6d4a90108
+DOT_HEIGHT	Dot.c	/^const int DOT_HEIGHT = 20;$/;"	v	typeref:typename:const int
+DOT_VEL	Dot.c	/^const int DOT_VEL = 600; \/\/ setting it to the horizontal width of the screen $/;"	v	typeref:typename:const int
+DOT_WIDTH	Dot.c	/^const int DOT_WIDTH = 20;$/;"	v	typeref:typename:const int
+Dot	Dot.h	/^typedef struct Dot{$/;"	s
+Dot	Dot.h	/^}Dot;$/;"	t	typeref:struct:Dot
+Dot_create	Dot.c	/^Dot* Dot_create(int x, int y)$/;"	f	typeref:typename:Dot *
+Dot_destroy	Dot.c	/^void Dot_destroy(Dot* dot)$/;"	f	typeref:typename:void
+Dot_handleEvents	Dot.c	/^void Dot_handleEvents(Dot* dot, SDL_Event* e)$/;"	f	typeref:typename:void
+Dot_move	Dot.c	/^void Dot_move(Dot* dot, float time_step, unsigned int LEVEL_WIDTH, unsigned int LEVEL_HEIGHT)$/;"	f	typeref:typename:void
+Dot_render	Dot.c	/^void Dot_render(Dot* dot, Window* window, SDL_Rect* camera)$/;"	f	typeref:typename:void
+Dot_setCamera	Dot.c	/^void Dot_setCamera(Dot* dot, SDL_Rect* camera, const int SCREEN_WIDTH, const int SCREEN_HEIGHT, /;"	f	typeref:typename:void
+ERROR	Sound.h	/^	ERROR$/;"	e	enum:__anon045122240103
+GAME_H	Game.h	/^#define GAME_H$/;"	d
+INITIAL_STATIC_FIND_INDEX_COUNT	bstrlib.c	/^#define INITIAL_STATIC_FIND_INDEX_COUNT /;"	d	file:
+LEVEL_HEIGHT	Game.h	/^const int LEVEL_HEIGHT;$/;"	v	typeref:typename:const int
+LEVEL_WIDTH	Game.h	/^const int LEVEL_WIDTH;$/;"	v	typeref:typename:const int
+LONG_BITS_QTY	bstrlib.c	/^#define LONG_BITS_QTY /;"	d	file:
+LONG_LOG_BITS_QTY	bstrlib.c	/^#define LONG_LOG_BITS_QTY /;"	d	file:
+LONG_TYPE	bstrlib.c	/^#define LONG_TYPE /;"	d	file:
+MAX_RECORDING_DEVICES	Sound.h	/^constexpr int MAX_RECORDING_DEVICES = 10;$/;"	v	typeref:typename:int
+MAX_RECORDING_SECONDS	Sound.h	/^constexpr int MAX_RECORDING_SECONDS = 5;$/;"	v	typeref:typename:int
+PLAYBACK	Sound.h	/^	PLAYBACK,$/;"	e	enum:__anon045122240103
+RECORDED	Sound.h	/^	RECORDED,$/;"	e	enum:__anon045122240103
+RECORDING	Sound.h	/^	RECORDING,$/;"	e	enum:__anon045122240103
+RECORDING_BUFFER_SECONDS	Sound.h	/^constexpr int RECORDING_BUFFER_SECONDS = MAX_RECORDING_SECONDS + 1;$/;"	v	typeref:typename:int
+RecordingState	Sound.h	/^}RecordingState;$/;"	t	typeref:enum:__anon045122240103
+SCREEN_HEIGHT	Game.h	/^const int SCREEN_HEIGHT = 600;$/;"	v	typeref:typename:const int
+SCREEN_WIDTH	Game.h	/^const int SCREEN_WIDTH = 800;$/;"	v	typeref:typename:const int
+SELECTING_DEVICE	Sound.h	/^	SELECTING_DEVICE,$/;"	e	enum:__anon045122240103
+SOUND_H	Sound.h	/^#define SOUND_H$/;"	d
+START_VSNBUFF	bstrlib.c	/^#define START_VSNBUFF /;"	d	file:
+STOPPED	Sound.h	/^	STOPPED,$/;"	e	enum:__anon045122240103
+Sound_audioPlaybackCallback	Sound.c	/^void Sound_audioPlaybackCallback(void * user_data, Uint8 * stream, int len)$/;"	f	typeref:typename:void
+Sound_audioRecordingCallback	Sound.c	/^void Sound_audioRecordingCallback(void * user_data, Uint8 * stream, int len)$/;"	f	typeref:typename:void
+TEXTURE_H	Texture.h	/^#define TEXTURE_H$/;"	d
+Texture	Texture.h	/^typedef struct Texture{$/;"	s
+Texture	Texture.h	/^}Texture;$/;"	t	typeref:struct:Texture
+Texture_copyRawPixels32	Texture.c	/^void Texture_copyRawPixels32(Texture * texture, void * pixels)$/;"	f	typeref:typename:void
+Texture_create	Texture.c	/^Texture* Texture_create()$/;"	f	typeref:typename:Texture *
+Texture_createBlank	Texture.c	/^bool Texture_createBlank(Texture * texture, Window * window, size_t width, size_t height, SDL_Te/;"	f	typeref:typename:bool
+Texture_destroy	Texture.c	/^void Texture_destroy(Texture * texture) \/\/ destroys the texture$/;"	f	typeref:typename:void
+Texture_free	Texture.c	/^void Texture_free(Texture * texture)$/;"	f	typeref:typename:void
+Texture_getHeight	Texture.c	/^size_t Texture_getHeight(Texture * texture)$/;"	f	typeref:typename:size_t
+Texture_getPitch32	Texture.c	/^Uint32 Texture_getPitch32(Texture * texture)$/;"	f	typeref:typename:Uint32
+Texture_getPixel32	Texture.c	/^Uint32 Texture_getPixel32(Texture * texture, Uint32 x, Uint32 y)$/;"	f	typeref:typename:Uint32
+Texture_getPixels32	Texture.c	/^Uint32* Texture_getPixels32(Texture * texture)$/;"	f	typeref:typename:Uint32 *
+Texture_getWidth	Texture.c	/^size_t Texture_getWidth(Texture * texture)$/;"	f	typeref:typename:size_t
+Texture_loadFromFile	Texture.c	/^bool Texture_loadFromFile(Texture * texture, Window * window, const char * filepath)$/;"	f	typeref:typename:bool
+Texture_loadFromPixels	Texture.c	/^bool Texture_loadFromPixels(Texture * texture, Window * window)$/;"	f	typeref:typename:bool
+Texture_loadFromRenderedText	Texture.c	/^bool Texture_loadFromRenderedText(Texture * texture, Window * window, TTF_Font * font, const cha/;"	f	typeref:typename:bool
+Texture_loadPixelsFromFile	Texture.c	/^bool Texture_loadPixelsFromFile(Texture * texture, Window * window, const char * filepath)$/;"	f	typeref:typename:bool
+Texture_lockTexture	Texture.c	/^bool Texture_lockTexture(Texture * texture)$/;"	f	typeref:typename:bool
+Texture_mapRGBA	Texture.c	/^Uint32 Texture_mapRGBA(Texture * texture, Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha)$/;"	f	typeref:typename:Uint32
+Texture_render	Texture.c	/^void Texture_render(Texture * texture, Window * window, int x, int y, SDL_Rect * clip)$/;"	f	typeref:typename:void
+Texture_renderEx	Texture.c	/^void Texture_renderEx(Texture * texture, Window * window, int x, int y, SDL_Rect * clip, double /;"	f	typeref:typename:void
+Texture_setAlpha	Texture.c	/^void Texture_setAlpha(Texture * texture, Uint8 alpha)$/;"	f	typeref:typename:void
+Texture_setAsRenderTarget	Texture.c	/^void Texture_setAsRenderTarget(Texture * texture, Window * window)$/;"	f	typeref:typename:void
+Texture_setBlendMode	Texture.c	/^void Texture_setBlendMode(Texture * texture, SDL_BlendMode blending)$/;"	f	typeref:typename:void
+Texture_setColor	Texture.c	/^void Texture_setColor(Texture * texture, Uint8 red, Uint8 green, Uint8 blue)$/;"	f	typeref:typename:void
+Texture_unlockTexture	Texture.c	/^bool Texture_unlockTexture(Texture * texture)$/;"	f	typeref:typename:bool
+Timer	Timer.h	/^typedef struct Timer{$/;"	s
+Timer	Timer.h	/^}Timer;$/;"	t	typeref:struct:Timer
+Timer_create	Timer.c	/^Timer* Timer_create()$/;"	f	typeref:typename:Timer *
+Timer_destroy	Timer.c	/^void Timer_destroy(Timer* timer)$/;"	f	typeref:typename:void
+Timer_getTicks	Timer.c	/^Uint32 Timer_getTicks(Timer* timer)$/;"	f	typeref:typename:Uint32
+Timer_isPaused	Timer.c	/^bool Timer_isPaused(Timer* timer)$/;"	f	typeref:typename:bool
+Timer_isStarted	Timer.c	/^bool Timer_isStarted(Timer* timer)$/;"	f	typeref:typename:bool
+Timer_pause	Timer.c	/^void Timer_pause(Timer* timer)$/;"	f	typeref:typename:void
+Timer_resume	Timer.c	/^void Timer_resume(Timer* timer)$/;"	f	typeref:typename:void
+Timer_start	Timer.c	/^void Timer_start(Timer* timer) \/\/ we can simply call it again to restart the timer$/;"	f	typeref:typename:void
+Timer_stop	Timer.c	/^void Timer_stop(Timer* timer)$/;"	f	typeref:typename:void
+WINDOW_H	Window.h	/^#define WINDOW_H$/;"	d
+Window	Window.h	/^}Window;$/;"	t	typeref:struct:__anon609d73d30108
+Window_create	Window.c	/^Window * Window_create(const char * title, int width, int height, Uint32 flags)$/;"	f	typeref:typename:Window *
+Window_destroy	Window.c	/^void Window_destroy(Window * window)$/;"	f	typeref:typename:void
+Window_focus	Window.c	/^void Window_focus(Window * window)$/;"	f	typeref:typename:void
+Window_handleEvents	Window.c	/^void Window_handleEvents(Window * window, SDL_Event * e)$/;"	f	typeref:typename:void
+Window_render	Game.c	/^void Window_render(Window * window)$/;"	f	typeref:typename:void
+_CRT_SECURE_NO_WARNINGS	bstrlib.c	/^# define _CRT_SECURE_NO_WARNINGS$/;"	d	file:
+__COLLIDER_H__	Collider.h	/^#define __COLLIDER_H__$/;"	d
+__DOT_H__	Dot.h	/^#define __DOT_H__$/;"	d
+__TIMER_H__	Timer.h	/^#define __TIMER_H__$/;"	d
+__anon045122240103	Sound.h	/^typedef enum{$/;"	g
+__anon609d73d30108	Window.h	/^typedef struct{$/;"	s
+__anone7f6d4a90108	Collider.h	/^typedef struct{$/;"	s
+b	bstrlib.c	/^	bstring b;$/;"	m	struct:genBstrList	typeref:typename:bstring	file:
+bBlockCopy	bstrlib.c	/^#define bBlockCopy(/;"	d	file:
+bNgetc	bstrlib.h	/^typedef int (*bNgetc) (void *parm);$/;"	t	typeref:typename:int (*)(void * parm)
+bNread	bstrlib.h	/^typedef size_t (* bNread) (void *buff, size_t elsize, size_t nelem, void *parm);$/;"	t	typeref:typename:size_t (*)(void * buff,size_t elsize,size_t nelem,void * parm)
+bStream	bstrlib.c	/^struct bStream {$/;"	s	file:
+balloc	bstrlib.c	/^int balloc (bstring b, int olen) {$/;"	f	typeref:typename:int
+ballocmin	bstrlib.c	/^int ballocmin (bstring b, int len) {$/;"	f	typeref:typename:int
+bassign	bstrlib.c	/^int bassign (bstring a, const_bstring b) {$/;"	f	typeref:typename:int
+bassignStatic	bstrlib.h	/^#define bassignStatic(/;"	d
+bassignblk	bstrlib.c	/^int bassignblk (bstring a, const void * s, int len) {$/;"	f	typeref:typename:int
+bassigncstr	bstrlib.c	/^int bassigncstr (bstring a, const char * str) {$/;"	f	typeref:typename:int
+bassignformat	bstrlib.c	/^int bassignformat (bstring b, const char * fmt, ...) {$/;"	f	typeref:typename:int
+bassigngets	bstrlib.c	/^int bassigngets (bstring b, bNgetc getcPtr, void * parm, char terminator) {$/;"	f	typeref:typename:int
+bassignmidstr	bstrlib.c	/^int bassignmidstr (bstring a, const_bstring b, int left, int len) {$/;"	f	typeref:typename:int
+bcatStatic	bstrlib.h	/^#define bcatStatic(/;"	d
+bcatblk	bstrlib.c	/^int bcatblk (bstring b, const void * s, int len) {$/;"	f	typeref:typename:int
+bcatcstr	bstrlib.c	/^int bcatcstr (bstring b, const char * s) {$/;"	f	typeref:typename:int
+bchar	bstrlib.h	/^#define bchar(/;"	d
+bchare	bstrlib.h	/^#define bchare(/;"	d
+bconcat	bstrlib.c	/^int bconcat (bstring b0, const_bstring b1) {$/;"	f	typeref:typename:int
+bconchar	bstrlib.c	/^int bconchar (bstring b, char c) {$/;"	f	typeref:typename:int
+bcstrfree	bstrlib.c	/^int bcstrfree (char * s) {$/;"	f	typeref:typename:int
+bdata	bstrlib.h	/^#define bdata(/;"	d
+bdatae	bstrlib.h	/^#define bdatae(/;"	d
+bdataofs	bstrlib.h	/^#define bdataofs(/;"	d
+bdataofse	bstrlib.h	/^#define bdataofse(/;"	d
+bdelete	bstrlib.c	/^int bdelete (bstring b, int pos, int len) {$/;"	f	typeref:typename:int
+bdestroy	bstrlib.c	/^int bdestroy (bstring b) {$/;"	f	typeref:typename:int
+bfindreplace	bstrlib.c	/^int bfindreplace (bstring b, const_bstring find, const_bstring repl,$/;"	f	typeref:typename:int
+bfindreplacecaseless	bstrlib.c	/^int bfindreplacecaseless (bstring b, const_bstring find, const_bstring repl,$/;"	f	typeref:typename:int
+bformat	bstrlib.c	/^bstring bformat (const char * fmt, ...) {$/;"	f	typeref:typename:bstring
+bformata	bstrlib.c	/^int bformata (bstring b, const char * fmt, ...) {$/;"	f	typeref:typename:int
+bfromStatic	bstrlib.h	/^#define bfromStatic(/;"	d
+bfromcstr	bstrlib.c	/^bstring bfromcstr (const char * str) {$/;"	f	typeref:typename:bstring
+bfromcstralloc	bstrlib.c	/^bstring bfromcstralloc (int mlen, const char * str) {$/;"	f	typeref:typename:bstring
+bfromcstrrangealloc	bstrlib.c	/^bstring bfromcstrrangealloc (int minl, int maxl, const char* str) {$/;"	f	typeref:typename:bstring
+bgets	bstrlib.c	/^bstring bgets (bNgetc getcPtr, void * parm, char terminator) {$/;"	f	typeref:typename:bstring
+bgetsa	bstrlib.c	/^int bgetsa (bstring b, bNgetc getcPtr, void * parm, char terminator) {$/;"	f	typeref:typename:int
+binchr	bstrlib.c	/^int binchr (const_bstring b0, int pos, const_bstring b1) {$/;"	f	typeref:typename:int
+binchrCF	bstrlib.c	/^static int binchrCF (const unsigned char * data, int len, int pos,$/;"	f	typeref:typename:int	file:
+binchrr	bstrlib.c	/^int binchrr (const_bstring b0, int pos, const_bstring b1) {$/;"	f	typeref:typename:int
+binchrrCF	bstrlib.c	/^static int binchrrCF (const unsigned char * data, int pos,$/;"	f	typeref:typename:int	file:
+binsert	bstrlib.c	/^int binsert (bstring b1, int pos, const_bstring b2, unsigned char fill) {$/;"	f	typeref:typename:int
+binsertStatic	bstrlib.h	/^#define binsertStatic(/;"	d
+binsertblk	bstrlib.c	/^int binsertblk (bstring b, int pos, const void * blk, int len,$/;"	f	typeref:typename:int
+binsertch	bstrlib.c	/^int binsertch (bstring b, int pos, int len, unsigned char fill) {$/;"	f	typeref:typename:int
+binstr	bstrlib.c	/^int binstr (const_bstring b1, int pos, const_bstring b2) {$/;"	f	typeref:typename:int
+binstrcaseless	bstrlib.c	/^int binstrcaseless (const_bstring b1, int pos, const_bstring b2) {$/;"	f	typeref:typename:int
+binstrr	bstrlib.c	/^int binstrr (const_bstring b1, int pos, const_bstring b2) {$/;"	f	typeref:typename:int
+binstrrcaseless	bstrlib.c	/^int binstrrcaseless (const_bstring b1, int pos, const_bstring b2) {$/;"	f	typeref:typename:int
+biseq	bstrlib.c	/^int biseq (const_bstring b0, const_bstring b1) {$/;"	f	typeref:typename:int
+biseqStatic	bstrlib.h	/^#define biseqStatic(/;"	d
+biseqblk	bstrlib.c	/^int biseqblk (const_bstring b, const void * blk, int len) {$/;"	f	typeref:typename:int
+biseqcaseless	bstrlib.c	/^int biseqcaseless (const_bstring b0, const_bstring b1) {$/;"	f	typeref:typename:int
+biseqcaselessStatic	bstrlib.h	/^#define biseqcaselessStatic(/;"	d
+biseqcaselessblk	bstrlib.c	/^int biseqcaselessblk (const_bstring b, const void * blk, int len) {$/;"	f	typeref:typename:int
+biseqcstr	bstrlib.c	/^int biseqcstr (const_bstring b, const char * s) {$/;"	f	typeref:typename:int
+biseqcstrcaseless	bstrlib.c	/^int biseqcstrcaseless (const_bstring b, const char * s) {$/;"	f	typeref:typename:int
+bisstemeqStatic	bstrlib.h	/^#define bisstemeqStatic(/;"	d
+bisstemeqblk	bstrlib.c	/^int bisstemeqblk (const_bstring b0, const void * blk, int len) {$/;"	f	typeref:typename:int
+bisstemeqcaselessStatic	bstrlib.h	/^#define bisstemeqcaselessStatic(/;"	d
+bisstemeqcaselessblk	bstrlib.c	/^int bisstemeqcaselessblk (const_bstring b0, const void * blk, int len) {$/;"	f	typeref:typename:int
+biswriteprotected	bstrlib.h	/^#define biswriteprotected(/;"	d
+bjoin	bstrlib.c	/^bstring bjoin (const struct bstrList * bl, const_bstring sep) {$/;"	f	typeref:typename:bstring
+bjoinStatic	bstrlib.h	/^#define bjoinStatic(/;"	d
+bjoinblk	bstrlib.c	/^bstring bjoinblk (const struct bstrList * bl, const void * blk, int len) {$/;"	f	typeref:typename:bstring
+bl	bstrlib.c	/^	struct bstrList * bl;$/;"	m	struct:genBstrList	typeref:struct:bstrList *	file:
+blength	bstrlib.h	/^#define blength(/;"	d
+blengthe	bstrlib.h	/^#define blengthe(/;"	d
+blk2bstr	bstrlib.c	/^bstring blk2bstr (const void * blk, int len) {$/;"	f	typeref:typename:bstring
+blk2tbstr	bstrlib.h	/^#define blk2tbstr(/;"	d
+bltrimws	bstrlib.c	/^int bltrimws (bstring b) {$/;"	f	typeref:typename:int
+bmid2tbstr	bstrlib.h	/^#define bmid2tbstr(/;"	d
+bmidstr	bstrlib.c	/^bstring bmidstr (const_bstring b, int left, int len) {$/;"	f	typeref:typename:bstring
+bninchr	bstrlib.c	/^int bninchr (const_bstring b0, int pos, const_bstring b1) {$/;"	f	typeref:typename:int
+bninchrr	bstrlib.c	/^int bninchrr (const_bstring b0, int pos, const_bstring b1) {$/;"	f	typeref:typename:int
+box	Dot.h	/^	Box_FCollider box;$/;"	m	struct:Dot	typeref:typename:Box_FCollider
+bpattern	bstrlib.c	/^int bpattern (bstring b, int len) {$/;"	f	typeref:typename:int
+bread	bstrlib.c	/^bstring bread (bNread readPtr, void * parm) {$/;"	f	typeref:typename:bstring
+breada	bstrlib.c	/^int breada (bstring b, bNread readPtr, void * parm) {$/;"	f	typeref:typename:int
+breplace	bstrlib.c	/^int breplace (bstring b1, int pos, int len, const_bstring b2,$/;"	f	typeref:typename:int
+brtrimws	bstrlib.c	/^int brtrimws (bstring b) {$/;"	f	typeref:typename:int
+bsStatic	bstrlib.h	/^# define bsStatic(/;"	d
+bsStaticBlkParms	bstrlib.h	/^#define bsStaticBlkParms(/;"	d
+bsStaticMlen	bstrlib.h	/^#define bsStaticMlen(/;"	d
+bsbufflength	bstrlib.c	/^int bsbufflength (struct bStream * s, int sz) {$/;"	f	typeref:typename:int
+bscb	bstrlib.c	/^static int bscb (void * parm, int ofs, int len) {$/;"	f	typeref:typename:int	file:
+bsclose	bstrlib.c	/^void * bsclose (struct bStream * s) {$/;"	f	typeref:typename:void *
+bseof	bstrlib.c	/^int bseof (const struct bStream * s) {$/;"	f	typeref:typename:int
+bsetstr	bstrlib.c	/^int bsetstr (bstring b0, int pos, const_bstring b1, unsigned char fill) {$/;"	f	typeref:typename:int
+bsopen	bstrlib.c	/^struct bStream * bsopen (bNread readPtr, void * parm) {$/;"	f	typeref:struct:bStream *
+bspeek	bstrlib.c	/^int bspeek (bstring r, const struct bStream * s) {$/;"	f	typeref:typename:int
+bsplit	bstrlib.c	/^struct bstrList * bsplit (const_bstring str, unsigned char splitChar) {$/;"	f	typeref:struct:bstrList *
+bsplitcb	bstrlib.c	/^int bsplitcb (const_bstring str, unsigned char splitChar, int pos,$/;"	f	typeref:typename:int
+bsplits	bstrlib.c	/^struct bstrList * bsplits (const_bstring str, const_bstring splitStr) {$/;"	f	typeref:struct:bstrList *
+bsplitscb	bstrlib.c	/^int bsplitscb (const_bstring str, const_bstring splitStr, int pos,$/;"	f	typeref:typename:int
+bsplitstr	bstrlib.c	/^struct bstrList * bsplitstr (const_bstring str, const_bstring splitStr) {$/;"	f	typeref:struct:bstrList *
+bsplitstrcb	bstrlib.c	/^int bsplitstrcb (const_bstring str, const_bstring splitStr, int pos,$/;"	f	typeref:typename:int
+bsread	bstrlib.c	/^int bsread (bstring r, struct bStream * s, int n) {$/;"	f	typeref:typename:int
+bsreada	bstrlib.c	/^int bsreada (bstring r, struct bStream * s, int n) {$/;"	f	typeref:typename:int
+bsreadln	bstrlib.c	/^int bsreadln (bstring r, struct bStream * s, char terminator) {$/;"	f	typeref:typename:int
+bsreadlna	bstrlib.c	/^int bsreadlna (bstring r, struct bStream * s, char terminator) {$/;"	f	typeref:typename:int
+bsreadlns	bstrlib.c	/^int bsreadlns (bstring r, struct bStream * s, const_bstring term) {$/;"	f	typeref:typename:int
+bsreadlnsa	bstrlib.c	/^int bsreadlnsa (bstring r, struct bStream * s, const_bstring term) {$/;"	f	typeref:typename:int
+bssplitscb	bstrlib.c	/^int bssplitscb (struct bStream * s, const_bstring splitStr,$/;"	f	typeref:typename:int
+bssplitstrcb	bstrlib.c	/^int bssplitstrcb (struct bStream * s, const_bstring splitStr,$/;"	f	typeref:typename:int
+bstr2cstr	bstrlib.c	/^char * bstr2cstr (const_bstring b, char z) {$/;"	f	typeref:typename:char *
+bstrList	bstrlib.h	/^struct bstrList {$/;"	s
+bstrListAlloc	bstrlib.c	/^int bstrListAlloc (struct bstrList * sl, int msz) {$/;"	f	typeref:typename:int
+bstrListAllocMin	bstrlib.c	/^int bstrListAllocMin (struct bstrList * sl, int msz) {$/;"	f	typeref:typename:int
+bstrListCreate	bstrlib.c	/^struct bstrList * bstrListCreate (void) {$/;"	f	typeref:struct:bstrList *
+bstrListDestroy	bstrlib.c	/^int bstrListDestroy (struct bstrList * sl) {$/;"	f	typeref:typename:int
+bstr__alloc	bstrlib.c	/^#define bstr__alloc(/;"	d	file:
+bstr__alloc	bstrlib.c	/^void* bstr__alloc (size_t sz) {$/;"	f	typeref:typename:void *
+bstr__free	bstrlib.c	/^#define bstr__free(/;"	d	file:
+bstr__memchr	bstrlib.c	/^#define bstr__memchr(/;"	d	file:
+bstr__memcmp	bstrlib.c	/^#define bstr__memcmp(/;"	d	file:
+bstr__memcpy	bstrlib.c	/^#define bstr__memcpy(/;"	d	file:
+bstr__memmove	bstrlib.c	/^#define bstr__memmove(/;"	d	file:
+bstr__memset	bstrlib.c	/^#define bstr__memset(/;"	d	file:
+bstr__realloc	bstrlib.c	/^#define bstr__realloc(/;"	d	file:
+bstrchr	bstrlib.h	/^#define bstrchr(/;"	d
+bstrchrp	bstrlib.c	/^int bstrchrp (const_bstring b, int c, int pos) {$/;"	f	typeref:typename:int
+bstrcmp	bstrlib.c	/^int bstrcmp (const_bstring b0, const_bstring b1) {$/;"	f	typeref:typename:int
+bstrcpy	bstrlib.c	/^bstring bstrcpy (const_bstring b) {$/;"	f	typeref:typename:bstring
+bstricmp	bstrlib.c	/^int bstricmp (const_bstring b0, const_bstring b1) {$/;"	f	typeref:typename:int
+bstring	bstrlib.h	/^typedef struct tagbstring * bstring;$/;"	t	typeref:struct:tagbstring *
+bstrncmp	bstrlib.c	/^int bstrncmp (const_bstring b0, const_bstring b1, int n) {$/;"	f	typeref:typename:int
+bstrnicmp	bstrlib.c	/^int bstrnicmp (const_bstring b0, const_bstring b1, int n) {$/;"	f	typeref:typename:int
+bstrrchr	bstrlib.h	/^#define bstrrchr(/;"	d
+bstrrchrp	bstrlib.c	/^int bstrrchrp (const_bstring b, int c, int pos) {$/;"	f	typeref:typename:int
+bsunread	bstrlib.c	/^int bsunread (struct bStream * s, const_bstring b) {$/;"	f	typeref:typename:int
+btfromblk	bstrlib.h	/^#define btfromblk(/;"	d
+btfromblkltrimws	bstrlib.h	/^#define btfromblkltrimws(/;"	d
+btfromblkrtrimws	bstrlib.h	/^#define btfromblkrtrimws(/;"	d
+btfromblktrimws	bstrlib.h	/^#define btfromblktrimws(/;"	d
+btfromcstr	bstrlib.h	/^#define btfromcstr(/;"	d
+btolower	bstrlib.c	/^int btolower (bstring b) {$/;"	f	typeref:typename:int
+btoupper	bstrlib.c	/^int btoupper (bstring b) {$/;"	f	typeref:typename:int
+btrimws	bstrlib.c	/^int btrimws (bstring b) {$/;"	f	typeref:typename:int
+btrunc	bstrlib.c	/^int btrunc (bstring b, int n) {$/;"	f	typeref:typename:int
+buff	bstrlib.c	/^	bstring buff;		\/* Buffer for over-reads *\/$/;"	m	struct:bStream	typeref:typename:bstring	file:
+buffer_byte_max_position	Sound.c	/^Uint32 buffer_byte_max_position = 0;$/;"	v	typeref:typename:Uint32
+buffer_byte_position	Sound.c	/^Uint32 buffer_byte_position = 0;$/;"	v	typeref:typename:Uint32
+buffer_byte_size	Sound.c	/^Uint32 buffer_byte_size = 0;$/;"	v	typeref:typename:Uint32
+buildCharField	bstrlib.c	/^static int buildCharField (struct charField * cf, const_bstring b) {$/;"	f	typeref:typename:int	file:
+bvcformata	bstrlib.c	/^int bvcformata (bstring b, int count, const char * fmt, va_list arg) {$/;"	f	typeref:typename:int
+bvformata	bstrlib.h	/^#define bvformata(/;"	d
+bwriteallow	bstrlib.h	/^#define bwriteallow(/;"	d
+bwriteprotect	bstrlib.h	/^#define bwriteprotect(/;"	d
+charField	bstrlib.c	/^struct charField { LONG_TYPE content[CFCLEN]; };$/;"	s	file:
+charField	bstrlib.c	/^struct charField { unsigned char content[CFCLEN]; };$/;"	s	file:
+check	dbg.h	/^#define check(/;"	d
+checkBoxCollision	Collider.c	/^bool checkBoxCollision(const Box_Collider* a, const Box_Collider* b)$/;"	f	typeref:typename:bool
+checkBoxFCollision	Collider.c	/^bool checkBoxFCollision(const Box_FCollider* a, const Box_FCollider* b)$/;"	f	typeref:typename:bool
+checkCircleBoxCollision	Collider.c	/^bool checkCircleBoxCollision(const Circle_Collider* a, const Box_Collider* b)$/;"	f	typeref:typename:bool
+checkCircleCollision	Collider.c	/^bool checkCircleCollision(const Circle_Collider* a, const Circle_Collider* b)$/;"	f	typeref:typename:bool
+check_debug	dbg.h	/^#define check_debug(/;"	d
+check_mem	dbg.h	/^#define check_mem(/;"	d
+clean_errno	dbg.h	/^#define clean_errno(/;"	d
+const_bstring	bstrlib.h	/^typedef const struct tagbstring * const_bstring;$/;"	t	typeref:typename:const struct tagbstring *
+content	bstrlib.c	/^struct charField { LONG_TYPE content[CFCLEN]; };$/;"	m	struct:charField	typeref:typename:LONG_TYPE[]	file:
+content	bstrlib.c	/^struct charField { unsigned char content[CFCLEN]; };$/;"	m	struct:charField	typeref:typename:unsigned char[]	file:
+cstr2bstr	bstrlib.h	/^#define cstr2bstr /;"	d
+cstr2tbstr	bstrlib.h	/^#define cstr2tbstr /;"	d
+current_state	Sound.c	/^RecordingState current_state = SELECTING_DEVICE;$/;"	v	typeref:typename:RecordingState
+data	bstrlib.h	/^	unsigned char * data;$/;"	m	struct:tagbstring	typeref:typename:unsigned char *
+dbg_h	dbg.h	/^#define dbg_h /;"	d
+debug	dbg.h	/^#define debug(/;"	d
+distanceSquared	Collider.c	/^static double distanceSquared(int x1, int y1, int x2, int y2)$/;"	f	typeref:typename:double	file:
+dot	Game.c	/^Dot* dot = NULL; \/\/ our dot$/;"	v	typeref:typename:Dot *
+dotCamera	Game.c	/^SDL_Rect dotCamera = {.x = 0, .y = 0, .w = SCREEN_WIDTH, .h = SCREEN_HEIGHT};$/;"	v	typeref:typename:SDL_Rect
+dotTexture	Dot.c	/^Texture dotTexture;$/;"	v	typeref:typename:Texture
+downcase	bstrlib.c	/^#define downcase(/;"	d	file:
+e	Game.h	/^SDL_Event e; \/\/ Queue to store the events$/;"	v	typeref:typename:SDL_Event
+entry	bstrlib.h	/^    bstring * entry;$/;"	m	struct:bstrList	typeref:typename:bstring *
+exvsnprintf	bstrlib.c	/^#define exvsnprintf(/;"	d	file:
+findreplaceengine	bstrlib.c	/^static int findreplaceengine (bstring b, const_bstring find,$/;"	f	typeref:typename:int	file:
+font	Game.h	/^TTF_Font * font = NULL; \/\/ globally used font$/;"	v	typeref:typename:TTF_Font *
+fps_timer	Game.c	/^Timer * fps_timer = NULL; \/\/ timer to keep track of ms passed$/;"	v	typeref:typename:Timer *
+fullscreen	Window.h	/^	bool fullscreen;$/;"	m	struct:__anon609d73d30108	typeref:typename:bool
+genBstrList	bstrlib.c	/^struct genBstrList {$/;"	s	file:
+handleEvents	Game.c	/^void handleEvents()$/;"	f	typeref:typename:void
+height	Texture.h	/^	size_t height;$/;"	m	struct:Texture	typeref:typename:size_t
+height	Window.h	/^	int height;$/;"	m	struct:__anon609d73d30108	typeref:typename:int
+init	Game.c	/^bool init()$/;"	f	typeref:typename:bool
+instr_fnptr	bstrlib.c	/^typedef int (*instr_fnptr) (const_bstring s1, int pos, const_bstring s2);$/;"	t	typeref:typename:int (*)(const_bstring s1,int pos,const_bstring s2)	file:
+invertCharField	bstrlib.c	/^static void invertCharField (struct charField * cf) {$/;"	f	typeref:typename:void	file:
+isEOF	bstrlib.c	/^	int isEOF;			\/* track file's EOF state *\/$/;"	m	struct:bStream	typeref:typename:int	file:
+keyboard_focus	Window.h	/^	bool keyboard_focus;$/;"	m	struct:__anon609d73d30108	typeref:typename:bool
+loadMedia	Game.c	/^bool loadMedia()$/;"	f	typeref:typename:bool
+log_err	dbg.h	/^#define log_err(/;"	d
+log_info	dbg.h	/^#define log_info(/;"	d
+log_warn	dbg.h	/^#define log_warn(/;"	d
+main	Game.c	/^int main(int arg, char* argv[])$/;"	f	typeref:typename:int
+maxBuffSz	bstrlib.c	/^	int maxBuffSz;$/;"	m	struct:bStream	typeref:typename:int	file:
+minimized	Window.h	/^	bool minimized;$/;"	m	struct:__anon609d73d30108	typeref:typename:bool
+mlen	bstrlib.h	/^	int mlen;$/;"	m	struct:tagbstring	typeref:typename:int
+mlen	bstrlib.h	/^    int qty, mlen;$/;"	m	struct:bstrList	typeref:typename:int
+mouse_focus	Window.h	/^	bool mouse_focus;$/;"	m	struct:__anon609d73d30108	typeref:typename:bool
+parm	bstrlib.c	/^	void * parm;		\/* The stream handle for core stream *\/$/;"	m	struct:bStream	typeref:typename:void *	file:
+paused	Timer.h	/^	bool paused;$/;"	m	struct:Timer	typeref:typename:bool
+paused_ticks	Timer.h	/^	Uint32 paused_ticks; \/\/ clock time when the timer is paused$/;"	m	struct:Timer	typeref:typename:Uint32
+pixels_surface	Texture.h	/^	SDL_Surface * pixels_surface; \/\/ Holds the pixel data of the image$/;"	m	struct:Texture	typeref:typename:SDL_Surface *
+playback_device_ID	Sound.c	/^SDL_AudioDeviceID playback_device_ID = 0;$/;"	v	typeref:typename:SDL_AudioDeviceID
+position	Dot.h	/^	SDL_Point position;$/;"	m	struct:Dot	typeref:typename:SDL_Point
+qty	bstrlib.h	/^    int qty, mlen;$/;"	m	struct:bstrList	typeref:typename:int
+quit	Game.h	/^bool quit = false;$/;"	v	typeref:typename:bool
+r	Collider.h	/^	int r;$/;"	m	struct:__anone7f6d4a90108	typeref:typename:int
+raw_pitch	Texture.h	/^	int raw_pitch;$/;"	m	struct:Texture	typeref:typename:int
+raw_pixels	Texture.h	/^	void * raw_pixels; \/\/ used to store the data until we don't send it to the gpu$/;"	m	struct:Texture	typeref:typename:void *
+readFnPtr	bstrlib.c	/^	bNread readFnPtr;	\/* fread compatible fnptr for core stream *\/$/;"	m	struct:bStream	typeref:typename:bNread	file:
+received_playback_spec	Sound.c	/^SDL_AudioSpec received_playback_spec;$/;"	v	typeref:typename:SDL_AudioSpec
+received_recording_spec	Sound.c	/^SDL_AudioSpec received_recording_spec;$/;"	v	typeref:typename:SDL_AudioSpec
+recording_buffer	Sound.c	/^Uint8 * recording_buffer = NULL;$/;"	v	typeref:typename:Uint8 *
+recording_device_ID	Sound.c	/^SDL_AudioDeviceID recording_device_ID = 0;$/;"	v	typeref:typename:SDL_AudioDeviceID
+render	Game.c	/^void render()$/;"	f	typeref:typename:void
+renderer	Window.h	/^	SDL_Renderer * renderer; $/;"	m	struct:__anon609d73d30108	typeref:typename:SDL_Renderer *
+run	Game.c	/^int run()$/;"	f	typeref:typename:int
+sentinel	dbg.h	/^#define sentinel(/;"	d
+setInCharField	bstrlib.c	/^#define setInCharField(/;"	d	file:
+shown	Window.h	/^	bool shown;$/;"	m	struct:__anon609d73d30108	typeref:typename:bool
+slen	bstrlib.h	/^	int slen;$/;"	m	struct:tagbstring	typeref:typename:int
+snapUpSize	bstrlib.c	/^static int snapUpSize (int i) {$/;"	f	typeref:typename:int	file:
+start_ticks	Timer.h	/^	Uint32 start_ticks; \/\/ clocks time when the timer is started$/;"	m	struct:Timer	typeref:typename:Uint32
+started	Timer.h	/^	bool started;$/;"	m	struct:Timer	typeref:typename:bool
+tagbstring	bstrlib.h	/^struct tagbstring {$/;"	s
+testInCharField	bstrlib.c	/^#define testInCharField(/;"	d	file:
+text_color	Game.c	/^SDL_Color text_color = {0,0,0,255};$/;"	v	typeref:typename:SDL_Color
+texture	Texture.h	/^	SDL_Texture * texture; $/;"	m	struct:Texture	typeref:typename:SDL_Texture *
+upcase	bstrlib.c	/^#define   upcase(/;"	d	file:
+update	Game.c	/^void update()$/;"	f	typeref:typename:void
+width	Texture.h	/^	size_t width; $/;"	m	struct:Texture	typeref:typename:size_t
+width	Window.h	/^	int width;$/;"	m	struct:__anon609d73d30108	typeref:typename:int
+window	Game.h	/^Window * window = NULL;$/;"	v	typeref:typename:Window *
+window	Window.h	/^	SDL_Window * window; $/;"	m	struct:__anon609d73d30108	typeref:typename:SDL_Window *
+windowID	Window.h	/^	int windowID; $/;"	m	struct:__anon609d73d30108	typeref:typename:int
+wspace	bstrlib.c	/^#define   wspace(/;"	d	file:
+x	Collider.h	/^	int x,y; \/\/ Defines the center of the circle and its radius$/;"	m	struct:__anone7f6d4a90108	typeref:typename:int
+x_velocity	Dot.h	/^	int x_velocity;$/;"	m	struct:Dot	typeref:typename:int
+y	Collider.h	/^	int x,y; \/\/ Defines the center of the circle and its radius$/;"	m	struct:__anone7f6d4a90108	typeref:typename:int
+y_velocity	Dot.h	/^	int y_velocity;$/;"	m	struct:Dot	typeref:typename:int
