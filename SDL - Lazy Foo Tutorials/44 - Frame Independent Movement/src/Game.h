@@ -26,7 +26,8 @@ bool loadMedia(); // Loads the textures, music etc
 void handleEvents(); // handles the user and game event
 void update(); // Handles physics and other updates
 void render(); // Display the sprites and textures on the screen
-void close(); // frees the resources and closes the subsystems
+void closeGame(); // frees the resources and closes the subsystems
+                    // BUG : Don't name your function 'close' it interferes with the system function 'close'
 int run();
 
 #endif

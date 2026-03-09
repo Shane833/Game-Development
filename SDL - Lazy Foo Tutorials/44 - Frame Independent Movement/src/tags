@@ -25,7 +25,7 @@ Box_FCollider	Collider.h	/^typedef SDL_FRect Box_FCollider;$/;"	t	typeref:typena
 CFCLEN	bstrlib.c	/^#define CFCLEN /;"	d	file:
 Circle_Collider	Collider.h	/^}Circle_Collider;$/;"	t	typeref:struct:__anone7f6d4a90108
 DOT_HEIGHT	Dot.c	/^const int DOT_HEIGHT = 20;$/;"	v	typeref:typename:const int
-DOT_VEL	Dot.c	/^const int DOT_VEL = 600; \/\/ setting it to the horizontal width of the screen $/;"	v	typeref:typename:const int
+DOT_VEL	Dot.c	/^const int DOT_VEL = 600; \/\/ NOTE: 600pixels\/60frams = 10pixels\/frame which is desired$/;"	v	typeref:typename:const int
 DOT_WIDTH	Dot.c	/^const int DOT_WIDTH = 20;$/;"	v	typeref:typename:const int
 Dot	Dot.h	/^typedef struct Dot{$/;"	s
 Dot	Dot.h	/^}Dot;$/;"	t	typeref:struct:Dot
@@ -269,6 +269,7 @@ checkCircleCollision	Collider.c	/^bool checkCircleCollision(const Circle_Collide
 check_debug	dbg.h	/^#define check_debug(/;"	d
 check_mem	dbg.h	/^#define check_mem(/;"	d
 clean_errno	dbg.h	/^#define clean_errno(/;"	d
+close	Game.c	/^void close(){$/;"	f	typeref:typename:void
 const_bstring	bstrlib.h	/^typedef const struct tagbstring * const_bstring;$/;"	t	typeref:typename:const struct tagbstring *
 content	bstrlib.c	/^struct charField { LONG_TYPE content[CFCLEN]; };$/;"	m	struct:charField	typeref:typename:LONG_TYPE[]	file:
 content	bstrlib.c	/^struct charField { unsigned char content[CFCLEN]; };$/;"	m	struct:charField	typeref:typename:unsigned char[]	file:
@@ -288,7 +289,6 @@ entry	bstrlib.h	/^    bstring * entry;$/;"	m	struct:bstrList	typeref:typename:bs
 exvsnprintf	bstrlib.c	/^#define exvsnprintf(/;"	d	file:
 findreplaceengine	bstrlib.c	/^static int findreplaceengine (bstring b, const_bstring find,$/;"	f	typeref:typename:int	file:
 font	Game.h	/^TTF_Font * font = NULL; \/\/ globally used font$/;"	v	typeref:typename:TTF_Font *
-fps_timer	Game.c	/^Timer * fps_timer = NULL; \/\/ timer to keep track of ms passed$/;"	v	typeref:typename:Timer *
 fullscreen	Window.h	/^	bool fullscreen;$/;"	m	struct:__anon609d73d30108	typeref:typename:bool
 genBstrList	bstrlib.c	/^struct genBstrList {$/;"	s	file:
 handleEvents	Game.c	/^void handleEvents()$/;"	f	typeref:typename:void
@@ -335,6 +335,7 @@ slen	bstrlib.h	/^	int slen;$/;"	m	struct:tagbstring	typeref:typename:int
 snapUpSize	bstrlib.c	/^static int snapUpSize (int i) {$/;"	f	typeref:typename:int	file:
 start_ticks	Timer.h	/^	Uint32 start_ticks; \/\/ clocks time when the timer is started$/;"	m	struct:Timer	typeref:typename:Uint32
 started	Timer.h	/^	bool started;$/;"	m	struct:Timer	typeref:typename:bool
+step_timer	Game.c	/^Timer * step_timer = NULL; \/\/ timer to keep track of ms passed$/;"	v	typeref:typename:Timer *
 tagbstring	bstrlib.h	/^struct tagbstring {$/;"	s
 testInCharField	bstrlib.c	/^#define testInCharField(/;"	d	file:
 text_color	Game.c	/^SDL_Color text_color = {0,0,0,255};$/;"	v	typeref:typename:SDL_Color
@@ -348,6 +349,6 @@ window	Window.h	/^	SDL_Window * window; $/;"	m	struct:__anon609d73d30108	typeref
 windowID	Window.h	/^	int windowID; $/;"	m	struct:__anon609d73d30108	typeref:typename:int
 wspace	bstrlib.c	/^#define   wspace(/;"	d	file:
 x	Collider.h	/^	int x,y; \/\/ Defines the center of the circle and its radius$/;"	m	struct:__anone7f6d4a90108	typeref:typename:int
-x_velocity	Dot.h	/^	int x_velocity;$/;"	m	struct:Dot	typeref:typename:int
+x_velocity	Dot.h	/^	float x_velocity; \/\/ changed to float as int would truncate and the movement would be janky$/;"	m	struct:Dot	typeref:typename:float
 y	Collider.h	/^	int x,y; \/\/ Defines the center of the circle and its radius$/;"	m	struct:__anone7f6d4a90108	typeref:typename:int
-y_velocity	Dot.h	/^	int y_velocity;$/;"	m	struct:Dot	typeref:typename:int
+y_velocity	Dot.h	/^	float y_velocity; \/\/ for time independent movements.$/;"	m	struct:Dot	typeref:typename:float

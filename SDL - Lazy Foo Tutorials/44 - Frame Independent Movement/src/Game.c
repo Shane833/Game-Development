@@ -17,7 +17,7 @@ int main(int arg, char* argv[])
 	check(r == 0, "Something went wrong!");
 	
 error: // close with fallthrough
-	// Destroy the dot
+	/*// Destroy the dot
 	Dot_destroy(dot);
 	dot = NULL;
 
@@ -37,7 +37,7 @@ error: // close with fallthrough
 	TTF_Quit();
 	IMG_Quit();
 	SDL_Quit();
-
+    */
 	return r;
 }
 
@@ -58,7 +58,9 @@ int run()
 		update();
 		render();	
 	}
-	
+
+    closeGame();
+
 	return 0;
 error:
 	return 1;
@@ -162,3 +164,26 @@ void render()
 	Window_render(window);
 }
 
+void closeGame(){
+    // Destroy the dot
+	Dot_destroy(dot);
+	dot = NULL;
+
+	// Close the timer
+	Timer_destroy(step_timer);
+	step_timer = NULL;
+
+	// Close all of our windows
+	Window_destroy(window);
+	window = NULL;
+
+	// Close the font
+	TTF_CloseFont(font);
+	font = NULL;
+	
+	// Quit SDL subsystems
+	TTF_Quit();
+	IMG_Quit();
+	SDL_Quit();
+
+}

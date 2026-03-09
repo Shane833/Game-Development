@@ -14,8 +14,8 @@ extern const int DOT_VEL;
 
 typedef struct Dot{
 	SDL_Point position;
-	float x_velocity;
-	float y_velocity;
+	float x_velocity; // changed to float as int would truncate and the movement would be janky
+	float y_velocity; // for time independent movements.
 	Box_FCollider box;
 }Dot;
 

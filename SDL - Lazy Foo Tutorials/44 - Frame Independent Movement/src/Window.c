@@ -144,13 +144,12 @@ void Window_focus(Window * window)
 void Window_destroy(Window * window)
 {
 	if(window){
-		if(window->window){
-			SDL_DestroyWindow(window->window);
-			window->window = NULL;	
-		}
 		if(window->renderer){
 			SDL_DestroyRenderer(window->renderer);
 			window->renderer = NULL;
+		}if(window->window){
+			SDL_DestroyWindow(window->window);
+			window->window = NULL;	
 		}
 		free(window);
 	}
